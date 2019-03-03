@@ -42,13 +42,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlx-xN-mcz">
-                                                    <rect key="frame" x="83.5" y="45.5" width="245" height="21"/>
+                                                    <rect key="frame" x="83.5" y="45.5" width="242.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="Jur-Ud-0tW">
-                                                    <rect key="frame" x="338.5" y="47" width="18.5" height="18"/>
+                                                    <rect key="frame" x="336" y="50.5" width="11" height="11"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Jur-Ud-0tW" secondAttribute="height" multiplier="1:1" id="lFr-Ak-O7q"/>
@@ -59,10 +59,10 @@
                                         <color key="backgroundColor" red="1" green="0.68621604759999999" blue="0.67399835470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="centerX" secondItem="aNw-rB-62w" secondAttribute="centerX" multiplier="0.25" id="DR3-cZ-xLC"/>
-                                            <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.05" id="DeO-X6-D2V"/>
+                                            <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.03" id="DeO-X6-D2V"/>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="Etr-rc-CL2"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="FvH-Pw-k8u"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jur-Ud-0tW" secondAttribute="trailing" constant="10" id="NA7-F7-8Kd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jur-Ud-0tW" secondAttribute="trailing" constant="20" id="NA7-F7-8Kd"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="leading" secondItem="wlx-xN-mcz" secondAttribute="trailing" constant="10" id="W3I-HJ-Ey4"/>
                                             <constraint firstItem="wlx-xN-mcz" firstAttribute="centerY" secondItem="OgB-wy-4m3" secondAttribute="centerY" id="ajz-V0-ZE9"/>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.15" id="bvZ-C1-bM7"/>
