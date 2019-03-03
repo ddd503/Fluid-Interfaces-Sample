@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Jo-ki-Qzv">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BN9-aW-V0U">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BN9-aW-V0U" customClass="MenuViewLayout" customModule="Fluid_Interfaces_Sample" customModuleProvider="target">
                                     <size key="itemSize" width="367" height="112"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -56,6 +56,7 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="0.68621604759999999" blue="0.67399835470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="centerX" secondItem="aNw-rB-62w" secondAttribute="centerX" multiplier="0.25" id="DR3-cZ-xLC"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.05" id="DeO-X6-D2V"/>
