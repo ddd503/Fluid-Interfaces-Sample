@@ -17,4 +17,9 @@ final class MenuViewCell: UICollectionViewCell {
         return String(describing: self)
     }
 
+    func setupMenuViewCell(interfaceType: InterfaceType) {
+        iconImageView.image = UIImage(named: interfaceType.imageName)
+        interfaceNameLabel.text = interfaceType.displayName
+    }
+
 }

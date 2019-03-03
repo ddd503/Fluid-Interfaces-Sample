@@ -6,7 +6,7 @@
 //  Copyright © 2019 kawaharadai. All rights reserved.
 //
 
-enum InterfaceType {
+enum InterfaceType: CaseIterable {
     case calculatorButton
     case springAnimations
     case flashlightButton
@@ -15,6 +15,27 @@ enum InterfaceType {
     case rewardingMomentum
     case faceTimePiP
     case rotation
+
+    var displayName: String {
+        switch self {
+        case .calculatorButton:
+            return "Calculator Button"
+        case .springAnimations:
+            return "Spring Animations"
+        case .flashlightButton:
+            return "Flashlight Button"
+        case .rubberbanding:
+            return "Rubberbanding"
+        case .accelerationPausing:
+            return "Acceleration Pausing"
+        case .rewardingMomentum:
+            return "Rewarding Momentum"
+        case .faceTimePiP:
+            return "FaceTime PiP"
+        case .rotation:
+            return "Rotation"
+        }
+    }
 
     var imageName: String {
         switch self {
