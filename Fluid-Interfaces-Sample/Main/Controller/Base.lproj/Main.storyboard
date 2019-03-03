@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="aNw-rB-62w">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuViewCell" id="aNw-rB-62w" customClass="MenuViewCell" customModule="Fluid_Interfaces_Sample" customModuleProvider="target">
                                         <rect key="frame" x="4" y="0.0" width="367" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -42,13 +42,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlx-xN-mcz">
-                                                    <rect key="frame" x="83.5" y="45.5" width="227" height="21"/>
+                                                    <rect key="frame" x="83.5" y="45.5" width="245" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jur-Ud-0tW">
-                                                    <rect key="frame" x="320.5" y="37.5" width="36.5" height="37"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="Jur-Ud-0tW">
+                                                    <rect key="frame" x="338.5" y="47" width="18.5" height="18"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Jur-Ud-0tW" secondAttribute="height" multiplier="1:1" id="lFr-Ak-O7q"/>
                                                     </constraints>
@@ -57,7 +58,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="centerX" secondItem="aNw-rB-62w" secondAttribute="centerX" multiplier="0.25" id="DR3-cZ-xLC"/>
-                                            <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.1" id="DeO-X6-D2V"/>
+                                            <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.05" id="DeO-X6-D2V"/>
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="Etr-rc-CL2"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="FvH-Pw-k8u"/>
                                             <constraint firstAttribute="trailing" secondItem="Jur-Ud-0tW" secondAttribute="trailing" constant="10" id="NA7-F7-8Kd"/>
@@ -66,6 +67,10 @@
                                             <constraint firstItem="OgB-wy-4m3" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.15" id="bvZ-C1-bM7"/>
                                             <constraint firstItem="wlx-xN-mcz" firstAttribute="leading" secondItem="OgB-wy-4m3" secondAttribute="trailing" constant="10" id="imX-M5-qgc"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="OgB-wy-4m3" id="Bxo-XN-UWU"/>
+                                            <outlet property="interfaceNameLabel" destination="wlx-xN-mcz" id="YZO-hR-6ye"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -80,6 +85,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fluid-Interfaces-Sample" id="dsm-PH-PzC"/>
+                    <connections>
+                        <outlet property="collectionView" destination="3Jo-ki-Qzv" id="hOl-mG-OnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,4 +112,7 @@
             <point key="canvasLocation" x="239" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron" width="10" height="15"/>
+    </resources>
 </document>

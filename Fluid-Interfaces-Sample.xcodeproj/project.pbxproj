@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455617A5222C0C1A00619391 /* MenuViewCell.swift */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		455617A5222C0C1A00619391 /* MenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		455617A7222C0C7A00619391 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				455617A5222C0C1A00619391 /* MenuViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		455617A8222C0C8100619391 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45BC8B0622283D1000343215 /* ViewController.swift */,
+				45BC8B0822283D1000343215 /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		45BC8AF822283D0F00343215 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +93,8 @@
 		45BC8B17222C070000343215 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				45BC8B0622283D1000343215 /* ViewController.swift */,
-				45BC8B0822283D1000343215 /* Main.storyboard */,
+				455617A8222C0C8100619391 /* Controller */,
+				455617A7222C0C7A00619391 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -153,6 +172,7 @@
 			files = (
 				45BC8B0722283D1000343215 /* ViewController.swift in Sources */,
 				45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */,
+				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
