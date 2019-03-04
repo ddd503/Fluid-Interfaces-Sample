@@ -6,6 +6,8 @@
 //  Copyright © 2019 kawaharadai. All rights reserved.
 //
 
+import UIKit
+
 enum InterfaceType: CaseIterable {
     case calculatorButton
     case springAnimations
@@ -55,6 +57,49 @@ enum InterfaceType: CaseIterable {
             return "icon_pip"
         case .rotation:
             return "icon_rotation"
+        }
+    }
+
+    var storyBoardIdentifier: String {
+        switch self {
+        case .calculatorButton:
+            return "MomentumViewController"
+        case .springAnimations:
+            return "MomentumViewController"
+        case .flashlightButton:
+            return "MomentumViewController"
+        case .rubberbanding:
+            return "MomentumViewController"
+        case .accelerationPausing:
+            return "MomentumViewController"
+        case .rewardingMomentum:
+            return "MomentumViewController"
+        case .faceTimePiP:
+            return "MomentumViewController"
+        case .rotation:
+            return "MomentumViewController"
+        }
+    }
+
+    var vc: UIViewController? {
+        let initialVC = UIStoryboard(name: self.storyBoardIdentifier, bundle: .main).instantiateInitialViewController()
+        switch self {
+        case .calculatorButton:
+            return MomentumViewController()
+        case .springAnimations:
+            return MomentumViewController()
+        case .flashlightButton:
+            return MomentumViewController()
+        case .rubberbanding:
+            return MomentumViewController()
+        case .accelerationPausing:
+            return MomentumViewController()
+        case .rewardingMomentum:
+            return initialVC as? MomentumViewController
+        case .faceTimePiP:
+            return MomentumViewController()
+        case .rotation:
+            return MomentumViewController()
         }
     }
 }

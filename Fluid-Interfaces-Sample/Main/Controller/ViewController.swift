@@ -13,6 +13,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
+            collectionView.delegate = self
         }
     }
 
@@ -34,5 +35,12 @@ extension ViewController: UICollectionViewDataSource {
         }
         cell.setupMenuViewCell(interfaceType: InterfaceType.allCases[indexPath.item])
         return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let transitionVC = InterfaceType.allCases[indexPath.item].vc else { return }
+        self.navigationController?.pushViewController(transitionVC, animated: true)
     }
 }
