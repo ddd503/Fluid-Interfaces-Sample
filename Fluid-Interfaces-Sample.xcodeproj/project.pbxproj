@@ -10,6 +10,8 @@
 		455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455617A5222C0C1A00619391 /* MenuViewCell.swift */; };
 		455617AA222C0ED200619391 /* MenuViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455617A9222C0ED200619391 /* MenuViewLayout.swift */; };
 		45839DDE222C259400A5F567 /* InterfaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839DDD222C259400A5F567 /* InterfaceType.swift */; };
+		45839DE1222D5BD800A5F567 /* MomentumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839DE0222D5BD800A5F567 /* MomentumViewController.swift */; };
+		45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		455617A5222C0C1A00619391 /* MenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		455617A9222C0ED200619391 /* MenuViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewLayout.swift; sourceTree = "<group>"; };
 		45839DDD222C259400A5F567 /* InterfaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceType.swift; sourceTree = "<group>"; };
+		45839DE0222D5BD800A5F567 /* MomentumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentumViewController.swift; sourceTree = "<group>"; };
+		45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MomentumViewController.storyboard; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		45839DDF222D5BA500A5F567 /* MomentumVC */ = {
+			isa = PBXGroup;
+			children = (
+				45839DE0222D5BD800A5F567 /* MomentumViewController.swift */,
+				45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */,
+			);
+			path = MomentumVC;
+			sourceTree = "<group>";
+		};
 		45BC8AF822283D0F00343215 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		45BC8B0322283D1000343215 /* Fluid-Interfaces-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				45839DDF222D5BA500A5F567 /* MomentumVC */,
 				45BC8B17222C070000343215 /* Main */,
 				45BC8B16222C06D900343215 /* Other */,
 			);
@@ -174,6 +188,7 @@
 				45BC8B0F22283D1000343215 /* LaunchScreen.storyboard in Resources */,
 				45BC8B0C22283D1000343215 /* Assets.xcassets in Resources */,
 				45BC8B0A22283D1000343215 /* Main.storyboard in Resources */,
+				45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45839DE1222D5BD800A5F567 /* MomentumViewController.swift in Sources */,
 				45BC8B0722283D1000343215 /* ViewController.swift in Sources */,
 				455617AA222C0ED200619391 /* MenuViewLayout.swift in Sources */,
 				45839DDE222C259400A5F567 /* InterfaceType.swift in Sources */,
