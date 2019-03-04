@@ -66,7 +66,7 @@
 		45839DDC222C257100A5F567 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				45839DE5222D7F9800A5F567 /* Data */,
+				45839DDD222C259400A5F567 /* InterfaceType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,14 +78,6 @@
 				45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */,
 			);
 			path = MomentumVC;
-			sourceTree = "<group>";
-		};
-		45839DE5222D7F9800A5F567 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				45839DDD222C259400A5F567 /* InterfaceType.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		45BC8AF822283D0F00343215 = {
