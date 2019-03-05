@@ -12,7 +12,7 @@ final class MomentumViewController: UIViewController {
 
     private lazy var cardView: UIView = {
         let view = UIView()
-        view.frame.size = CGSize(width: self.view.bounds.width * 0.8, height: self.view.bounds.height * 0.8)
+        view.frame.size = CGSize(width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.8)
         view.center = self.view.center
         view.backgroundColor = .blue
         return view
@@ -20,7 +20,15 @@ final class MomentumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCardView()
+    }
+
+    private func setupCardView() {
         self.view.addSubview(cardView)
+        cardView.layer.masksToBounds = true
+        cardView.layer.cornerRadius = 10
+        let transform = CGAffineTransform(translationX: 0, y: view.bounds.height * 0.8)
+        cardView.transform = transform
     }
 
 }
