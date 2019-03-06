@@ -74,10 +74,18 @@
 		45839DDF222D5BA500A5F567 /* MomentumVC */ = {
 			isa = PBXGroup;
 			children = (
+				45839DE92230132900A5F567 /* Controller */,
+			);
+			path = MomentumVC;
+			sourceTree = "<group>";
+		};
+		45839DE92230132900A5F567 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				45839DE0222D5BD800A5F567 /* MomentumViewController.swift */,
 				45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */,
 			);
-			path = MomentumVC;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		45BC8AF822283D0F00343215 = {
