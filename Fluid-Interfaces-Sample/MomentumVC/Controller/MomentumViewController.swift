@@ -56,11 +56,15 @@ final class MomentumViewController: UIViewController {
             cardView.transform = closedTransform
         case .ended:
             if gesture.velocity(in: view).y < -400 {
-                print("スワイプが高速なら全て許可")
+                let animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+                    // 44はナビバー分
+                    self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+
+                }
+                animator.startAnimation()
             } else {
-                if cardView.transform.ty < -(self.cardView.bounds.height * 0.15) {
-                    let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn) {
-                        // 44はナビバー分
+                if cardView.transform.ty < -(self.cardView.bounds.height * 0.2) {
+                    let animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
                         self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
 
                     }
