@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum PanGestureType {
+    case strongSwipe
+    case overLimit
+    case lowerLimit
+}
+
 final class MomentumViewController: UIViewController {
 
     private lazy var cardView: UIView = {
@@ -46,6 +52,26 @@ final class MomentumViewController: UIViewController {
         cardView.addGestureRecognizer(panGesture)
     }
 
+    private func handlePanGesture(gestureType: PanGestureType) {
+        var animator: UIViewPropertyAnimator
+        switch gestureType {
+        case .strongSwipe:
+            animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+                // 44はナビバー分
+                self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+            }
+        case .overLimit:
+            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+                self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+            }
+        case .lowerLimit:
+            animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
+                self?.cardView.transform = .identity
+            }
+        }
+        animator.startAnimation()
+    }
+
     @objc private func panned(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
@@ -56,24 +82,12 @@ final class MomentumViewController: UIViewController {
             cardView.transform = closedTransform
         case .ended:
             if gesture.velocity(in: view).y < -400 {
-                let animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                    // 44はナビバー分
-                    self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
-
-                }
-                animator.startAnimation()
+                handlePanGesture(gestureType: .strongSwipe)
             } else {
                 if cardView.transform.ty < -(self.cardView.bounds.height * 0.2) {
-                    let animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                        self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
-
-                    }
-                    animator.startAnimation()
+                    handlePanGesture(gestureType: .overLimit)
                 } else {
-                    let animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
-                        self?.cardView.transform = .identity
-                    }
-                    animator.startAnimation()
+                    handlePanGesture(gestureType: .lowerLimit)
                 }
             }
         default: break
