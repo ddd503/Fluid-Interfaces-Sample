@@ -62,10 +62,12 @@ final class MomentumViewController: UIViewController {
             }
         case .overLimit:
             animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+                self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+                self.cardView.transform = self.closedTransform
             }
         case .lowerLimit:
             animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
+                self?.closedTransform = .identity
                 self?.cardView.transform = .identity
             }
         }
@@ -77,9 +79,13 @@ final class MomentumViewController: UIViewController {
         case .began:
             break
         case .changed:
-            let transition = gesture.translation(in: cardView)
-            closedTransform = CGAffineTransform(translationX: 0, y: transition.y)
-            cardView.transform = closedTransform
+            if closedTransform == .identity {
+                let transition = gesture.translation(in: cardView)
+                closedTransform = CGAffineTransform(translationX: 0, y: transition.y)
+                cardView.transform = closedTransform
+            } else {
+                cardView.transform = closedTransform
+            }
         case .ended:
             if gesture.velocity(in: view).y < -400 {
                 handlePanGesture(gestureType: .strongSwipe)
