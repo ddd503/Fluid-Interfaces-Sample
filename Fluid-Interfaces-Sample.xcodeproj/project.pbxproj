@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455617A5222C0C1A00619391 /* MenuViewCell.swift */; };
 		455617AA222C0ED200619391 /* MenuViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455617A9222C0ED200619391 /* MenuViewLayout.swift */; };
+		457B4CA9223D82CF0036FB39 /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */; };
+		457B4CAB223D82D70036FB39 /* YoutubeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */; };
 		45839DDE222C259400A5F567 /* InterfaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839DDD222C259400A5F567 /* InterfaceType.swift */; };
 		45839DE1222D5BD800A5F567 /* MomentumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839DE0222D5BD800A5F567 /* MomentumViewController.swift */; };
 		45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		455617A5222C0C1A00619391 /* MenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		455617A9222C0ED200619391 /* MenuViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewLayout.swift; sourceTree = "<group>"; };
+		457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
+		457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YoutubeViewController.storyboard; sourceTree = "<group>"; };
 		45839DDD222C259400A5F567 /* InterfaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceType.swift; sourceTree = "<group>"; };
 		45839DE0222D5BD800A5F567 /* MomentumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentumViewController.swift; sourceTree = "<group>"; };
 		45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MomentumViewController.storyboard; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		457B4CA7223D807F0036FB39 /* YoutubeVC */ = {
+			isa = PBXGroup;
+			children = (
+				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
+				457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */,
+			);
+			path = YoutubeVC;
+			sourceTree = "<group>";
+		};
 		45839DDC222C257100A5F567 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,18 +99,10 @@
 		45839DDF222D5BA500A5F567 /* MomentumVC */ = {
 			isa = PBXGroup;
 			children = (
-				45839DE92230132900A5F567 /* Controller */,
-			);
-			path = MomentumVC;
-			sourceTree = "<group>";
-		};
-		45839DE92230132900A5F567 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				45839DE0222D5BD800A5F567 /* MomentumViewController.swift */,
 				45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */,
 			);
-			path = Controller;
+			path = MomentumVC;
 			sourceTree = "<group>";
 		};
 		45839E0C223D5EBB00A5F567 /* View */ = {
@@ -135,10 +140,11 @@
 		45BC8B0322283D1000343215 /* Fluid-Interfaces-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				45BC8B17222C070000343215 /* Main */,
+				457B4CA7223D807F0036FB39 /* YoutubeVC */,
+				45839DDF222D5BA500A5F567 /* MomentumVC */,
 				457B4CA6223D707B0036FB39 /* Common */,
 				45839E0F223D60A000A5F567 /* Extention */,
-				45839DDF222D5BA500A5F567 /* MomentumVC */,
-				45BC8B17222C070000343215 /* Main */,
 				45BC8B16222C06D900343215 /* Other */,
 			);
 			path = "Fluid-Interfaces-Sample";
@@ -225,6 +231,7 @@
 			files = (
 				45BC8B0F22283D1000343215 /* LaunchScreen.storyboard in Resources */,
 				45BC8B0C22283D1000343215 /* Assets.xcassets in Resources */,
+				457B4CAB223D82D70036FB39 /* YoutubeViewController.storyboard in Resources */,
 				45BC8B0A22283D1000343215 /* Main.storyboard in Resources */,
 				45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */,
 			);
@@ -245,6 +252,7 @@
 				45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */,
 				45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */,
 				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,
+				457B4CA9223D82CF0036FB39 /* YoutubeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
