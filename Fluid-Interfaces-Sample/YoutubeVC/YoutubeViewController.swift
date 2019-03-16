@@ -8,23 +8,33 @@
 
 import UIKit
 
-class YoutubeViewController: UIViewController {
+final class YoutubeViewController: UIViewController {
+
+    @IBOutlet private weak var baseView: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+        }
+    }
+
+    var interfaceType: InterfaceType?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = interfaceType?.displayName
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension YoutubeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
-    */
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = "関連項目(\(indexPath.row + 1))"
+        return cell
+    }
 }

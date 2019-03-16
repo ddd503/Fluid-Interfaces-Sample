@@ -10,11 +10,14 @@ import UIKit
 
 enum InterfaceType: CaseIterable {
     case rewardingMomentum
+    case youtube
 
     var displayName: String {
         switch self {
         case .rewardingMomentum:
             return "Rewarding Momentum"
+        case .youtube:
+            return "Youtube StayView"
         }
     }
 
@@ -22,6 +25,8 @@ enum InterfaceType: CaseIterable {
         switch self {
         case .rewardingMomentum:
             return "MomentumViewController"
+        case .youtube:
+            return "YoutubeViewController"
         }
     }
 
@@ -32,6 +37,10 @@ enum InterfaceType: CaseIterable {
             let momentumViewController = initialVC as? MomentumViewController
             momentumViewController?.interfaceType = self
             return momentumViewController
+        case .youtube:
+            let youtubeViewController = initialVC as? YoutubeViewController
+            youtubeViewController?.interfaceType = self
+            return youtubeViewController
         }
     }
 
@@ -39,6 +48,8 @@ enum InterfaceType: CaseIterable {
         switch self {
         case .rewardingMomentum:
             return (UIColor(hex: 0x61A8FF), UIColor(hex: 0x243BD1))
+        case .youtube:
+            return (UIColor(hex: 0xFF9A58), UIColor(hex: 0xFF1E10))
         }
     }
 }
