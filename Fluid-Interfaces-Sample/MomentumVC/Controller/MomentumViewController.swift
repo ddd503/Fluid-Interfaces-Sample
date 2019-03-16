@@ -47,12 +47,14 @@ final class MomentumViewController: UIViewController {
         handleView.frame.origin.y = 30
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(gesture:)))
         cardView.addGestureRecognizer(panGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped(gesture:)))
+        cardView.addGestureRecognizer(tapGesture)
     }
 
     /// PanGestureに応じてCardViewをアニメーションさせる
     ///
     /// - Parameter shouldMove: cardViewの位置を移動させるかどうか
-    private func handlePanGesture(shouldMove: Bool) {
+    private func cardViewAnimation(shouldMove: Bool) {
         guard !animator.isRunning else { return }
         if shouldMove {
             animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
@@ -126,15 +128,21 @@ final class MomentumViewController: UIViewController {
             }
         case .ended:
             if isFastMoveToY(gesture: gesture) {
-                handlePanGesture(shouldMove: true)
+                cardViewAnimation(shouldMove: true)
             } else {
                 if isOverLimit() {
-                    handlePanGesture(shouldMove: true)
+                    cardViewAnimation(shouldMove: true)
                 } else {
-                    handlePanGesture(shouldMove: false)
+                    cardViewAnimation(shouldMove: false)
                 }
             }
         default: break
+        }
+    }
+
+    @objc private func tapped(gesture: UITapGestureRecognizer) {
+        if !isOpen {
+            cardViewAnimation(shouldMove: true)
         }
     }
 
