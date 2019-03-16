@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum PanGestureType {
-    case strongSwipe
-    case overLimit
-    case lowerLimit
-}
-
 final class MomentumViewController: UIViewController {
 
     private lazy var cardView: UIView = {
@@ -55,10 +49,9 @@ final class MomentumViewController: UIViewController {
         cardView.addGestureRecognizer(panGesture)
     }
 
-    private func handlePanGesture(gestureType: PanGestureType) {
+    private func handlePanGesture(shouldOpen: Bool) {
         guard !animator.isRunning else { return }
-        switch gestureType {
-        case .strongSwipe:
+        if shouldOpen {
             animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
                 if self.isOpen {
                     self.closedTransform = .identity
@@ -71,20 +64,7 @@ final class MomentumViewController: UIViewController {
             animator.addCompletion { (position) in
                 if position == .end { self.isOpen.toggle() }
             }
-        case .overLimit:
-            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                if self.isOpen {
-                    self.closedTransform = .identity
-                    self.cardView.transform = self.closedTransform
-                } else {
-                    self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
-                    self.cardView.transform = self.closedTransform
-                }
-            }
-            animator.addCompletion { (position) in
-                if position == .end { self.isOpen.toggle() }
-            }
-        case .lowerLimit:
+        } else {
             if isOpen {
                 animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
                     guard let self = self else { return }
@@ -124,12 +104,12 @@ final class MomentumViewController: UIViewController {
             }
         case .ended:
             if gesture.velocity(in: view).y < -400 {
-                handlePanGesture(gestureType: .strongSwipe)
+                handlePanGesture(shouldOpen: true)
             } else {
                 if isOverLimit() {
-                    handlePanGesture(gestureType: .overLimit)
+                    handlePanGesture(shouldOpen: true)
                 } else {
-                    handlePanGesture(gestureType: .lowerLimit)
+                    handlePanGesture(shouldOpen: false)
                 }
             }
         default: break
