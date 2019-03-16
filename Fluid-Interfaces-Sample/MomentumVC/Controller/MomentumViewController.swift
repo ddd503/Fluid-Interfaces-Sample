@@ -100,12 +100,13 @@ final class MomentumViewController: UIViewController {
     /// - Returns: true - された, false - されていない
     private func isFastMoveToY(gesture: UIPanGestureRecognizer) -> Bool {
         let transition = gesture.translation(in: cardView)
+        let distanceX = abs(transition.x)
         if isOpen {
             // 下方向 & swipeスピード
-            return transition.y > 0 && gesture.velocity(in: view).y > 300
+            return transition.y > 0 && distanceX < 100 && distanceX > 40 && gesture.velocity(in: view).y > 800
         } else {
             // 上方向 & swipeスピード
-            return transition.y < 0 && gesture.velocity(in: view).y < -300
+            return transition.y < 0 && abs(transition.x) < 100 && gesture.velocity(in: view).y < -800
         }
     }
 
