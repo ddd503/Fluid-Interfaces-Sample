@@ -59,12 +59,14 @@ final class MomentumViewController: UIViewController {
         guard !animator.isRunning else { return }
         switch gestureType {
         case .strongSwipe:
-            if self.isOpen {
-                self.closedTransform = .identity
-                self.cardView.transform = self.closedTransform
-            } else {
-                self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
-                self.cardView.transform = self.closedTransform
+            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+                if self.isOpen {
+                    self.closedTransform = .identity
+                    self.cardView.transform = self.closedTransform
+                } else {
+                    self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
+                    self.cardView.transform = self.closedTransform
+                }
             }
             animator.addCompletion { (position) in
                 if position == .end { self.isOpen.toggle() }
