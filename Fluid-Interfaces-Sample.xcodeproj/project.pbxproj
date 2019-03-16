@@ -67,6 +67,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		457B4CA6223D707B0036FB39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				45839E0C223D5EBB00A5F567 /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		45839DDC222C257100A5F567 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +86,6 @@
 		45839DDF222D5BA500A5F567 /* MomentumVC */ = {
 			isa = PBXGroup;
 			children = (
-				45839E0C223D5EBB00A5F567 /* View */,
 				45839DE92230132900A5F567 /* Controller */,
 			);
 			path = MomentumVC;
@@ -128,6 +135,7 @@
 		45BC8B0322283D1000343215 /* Fluid-Interfaces-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				457B4CA6223D707B0036FB39 /* Common */,
 				45839E0F223D60A000A5F567 /* Extention */,
 				45839DDF222D5BA500A5F567 /* MomentumVC */,
 				45BC8B17222C070000343215 /* Main */,

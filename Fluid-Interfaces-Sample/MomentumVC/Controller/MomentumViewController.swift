@@ -31,6 +31,7 @@ final class MomentumViewController: UIViewController {
         return view
     }()
 
+    var interfaceType: InterfaceType?
     private let navigationbarHeight: CGFloat = 44
     private var closedTransform = CGAffineTransform()
     private var isOpen = false
@@ -38,6 +39,7 @@ final class MomentumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = interfaceType?.displayName
         layoutSubView()
     }
 
@@ -58,7 +60,8 @@ final class MomentumViewController: UIViewController {
     private func cardViewAnimation(shouldMove: Bool) {
         guard !animator.isRunning else { return }
         if shouldMove {
-            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) { [weak self] in
+                guard let self = self else { return }
                 if self.isOpen {
                     self.closedTransform = .identity
                     self.cardView.transform = self.closedTransform

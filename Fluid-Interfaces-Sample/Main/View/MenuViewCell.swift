@@ -10,7 +10,7 @@ import UIKit
 
 final class MenuViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var iconView: GradientView!
     @IBOutlet private weak var interfaceNameLabel: UILabel!
 
     static var identifier: String {
@@ -18,7 +18,8 @@ final class MenuViewCell: UICollectionViewCell {
     }
 
     func setupMenuViewCell(interfaceType: InterfaceType) {
-        iconImageView.image = UIImage(named: interfaceType.imageName)
+        iconView.topColor = interfaceType.iconViewColors.topColor
+        iconView.bottomColor = interfaceType.iconViewColors.bottomColor
         interfaceNameLabel.text = interfaceType.displayName
     }
 

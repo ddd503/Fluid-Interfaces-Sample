@@ -35,41 +35,49 @@
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OgB-wy-4m3">
-                                                    <rect key="frame" x="18.5" y="28.5" width="55" height="55"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="OgB-wy-4m3" secondAttribute="height" multiplier="1:1" id="z8l-Qx-VJX"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlx-xN-mcz">
-                                                    <rect key="frame" x="83.5" y="45.5" width="242.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="83" y="0.0" width="243" height="112"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="Jur-Ud-0tW">
                                                     <rect key="frame" x="336" y="50.5" width="11" height="11"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Jur-Ud-0tW" secondAttribute="height" multiplier="1:1" id="lFr-Ak-O7q"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJC-hV-RrQ" customClass="GradientView" customModule="Fluid_Interfaces_Sample" customModuleProvider="target">
+                                                    <rect key="frame" x="24" y="34" width="44" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iJC-hV-RrQ" secondAttribute="height" multiplier="1:1" id="stk-FW-rpH"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.68621604759999999" blue="0.67399835470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="OgB-wy-4m3" firstAttribute="centerX" secondItem="aNw-rB-62w" secondAttribute="centerX" multiplier="0.25" id="DR3-cZ-xLC"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.03" id="DeO-X6-D2V"/>
-                                            <constraint firstItem="OgB-wy-4m3" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="Etr-rc-CL2"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="FvH-Pw-k8u"/>
+                                            <constraint firstItem="iJC-hV-RrQ" firstAttribute="centerX" secondItem="aNw-rB-62w" secondAttribute="centerX" multiplier="0.25" id="LnG-s3-czH"/>
+                                            <constraint firstItem="iJC-hV-RrQ" firstAttribute="centerY" secondItem="aNw-rB-62w" secondAttribute="centerY" id="M35-TT-arq"/>
                                             <constraint firstAttribute="trailing" secondItem="Jur-Ud-0tW" secondAttribute="trailing" constant="20" id="NA7-F7-8Kd"/>
                                             <constraint firstItem="Jur-Ud-0tW" firstAttribute="leading" secondItem="wlx-xN-mcz" secondAttribute="trailing" constant="10" id="W3I-HJ-Ey4"/>
-                                            <constraint firstItem="wlx-xN-mcz" firstAttribute="centerY" secondItem="OgB-wy-4m3" secondAttribute="centerY" id="ajz-V0-ZE9"/>
-                                            <constraint firstItem="OgB-wy-4m3" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.15" id="bvZ-C1-bM7"/>
-                                            <constraint firstItem="wlx-xN-mcz" firstAttribute="leading" secondItem="OgB-wy-4m3" secondAttribute="trailing" constant="10" id="imX-M5-qgc"/>
+                                            <constraint firstItem="wlx-xN-mcz" firstAttribute="height" secondItem="aNw-rB-62w" secondAttribute="height" id="Yn0-wn-8Fk"/>
+                                            <constraint firstItem="wlx-xN-mcz" firstAttribute="centerY" secondItem="iJC-hV-RrQ" secondAttribute="centerY" id="ajz-V0-ZE9"/>
+                                            <constraint firstItem="wlx-xN-mcz" firstAttribute="leading" secondItem="iJC-hV-RrQ" secondAttribute="trailing" constant="15" id="imX-M5-qgc"/>
+                                            <constraint firstItem="iJC-hV-RrQ" firstAttribute="width" secondItem="aNw-rB-62w" secondAttribute="width" multiplier="0.12" id="pQ8-iz-neh"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="iconImageView" destination="OgB-wy-4m3" id="Bxo-XN-UWU"/>
+                                            <outlet property="iconView" destination="iJC-hV-RrQ" id="aeg-DM-WQc"/>
                                             <outlet property="interfaceNameLabel" destination="wlx-xN-mcz" id="YZO-hR-6ye"/>
                                         </connections>
                                     </collectionViewCell>
@@ -85,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Fluid-Interfaces-Sample" id="dsm-PH-PzC"/>
+                    <navigationItem key="navigationItem" title="Fluid-Interfaces-Sample" leftItemsSupplementBackButton="YES" id="dsm-PH-PzC"/>
                     <connections>
                         <outlet property="collectionView" destination="3Jo-ki-Qzv" id="hOl-mG-OnF"/>
                     </connections>
