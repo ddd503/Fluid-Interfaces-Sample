@@ -49,9 +49,12 @@ final class MomentumViewController: UIViewController {
         cardView.addGestureRecognizer(panGesture)
     }
 
-    private func handlePanGesture(shouldOpen: Bool) {
+    /// PanGestureに応じてCardViewをアニメーションさせる
+    ///
+    /// - Parameter shouldMove: cardViewの位置を移動させるかどうか
+    private func handlePanGesture(shouldMove: Bool) {
         guard !animator.isRunning else { return }
-        if shouldOpen {
+        if shouldMove {
             animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
                 if self.isOpen {
                     self.closedTransform = .identity
@@ -80,6 +83,9 @@ final class MomentumViewController: UIViewController {
         animator.startAnimation()
     }
 
+    /// cardViewが規定値以上移動したかどうか
+    ///
+    /// - Returns: true - 移動した, false - 移動していない
     private func isOverLimit() -> Bool {
         if isOpen {
             return -(self.cardView.bounds.height * 0.7) < cardView.transform.ty
@@ -104,12 +110,12 @@ final class MomentumViewController: UIViewController {
             }
         case .ended:
             if gesture.velocity(in: view).y < -400 {
-                handlePanGesture(shouldOpen: true)
+                handlePanGesture(shouldMove: true)
             } else {
                 if isOverLimit() {
-                    handlePanGesture(shouldOpen: true)
+                    handlePanGesture(shouldMove: true)
                 } else {
-                    handlePanGesture(shouldOpen: false)
+                    handlePanGesture(shouldMove: false)
                 }
             }
         default: break
