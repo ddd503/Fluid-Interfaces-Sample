@@ -10,12 +10,15 @@ import UIKit
 
 final class MomentumViewController: UIViewController {
 
-    private lazy var cardView: UIView = {
-        let view = UIView()
+    private lazy var cardView: GradientView = {
+        let view = GradientView()
+        view.backgroundColor = UIColor(white: 0.3, alpha: 1)
+        view.topColor = UIColor(hex: 0x61A8FF)
+        view.bottomColor = UIColor(hex: 0x243BD1)
         view.frame.size = CGSize(width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.8)
         view.frame.origin.y = self.view.bounds.height * 0.85
         view.center.x = self.view.center.x
-        view.backgroundColor = .blue
+        view.cornerRadius = 10
         return view
     }()
 
@@ -40,8 +43,6 @@ final class MomentumViewController: UIViewController {
 
     private func layoutSubView() {
         self.view.addSubview(cardView)
-        cardView.layer.masksToBounds = true
-        cardView.layer.cornerRadius = 10
         cardView.addSubview(handleView)
         handleView.center.x = view.convert(cardView.frame, to: view).width / 2
         handleView.frame.origin.y = 30
@@ -115,8 +116,6 @@ final class MomentumViewController: UIViewController {
     @objc private func panned(gesture: UIPanGestureRecognizer) {
         guard !animator.isRunning else { return }
         switch gesture.state {
-        case .began:
-            break
         case .changed:
             let transition = gesture.translation(in: cardView)
             if isOpen {
