@@ -34,7 +34,10 @@ final class MomentumViewController: UIViewController {
         return view
     }()
 
+    private let navigationbarHeight: CGFloat = 44
     private var closedTransform = CGAffineTransform()
+    private var isOpen = false
+    private var animator = UIViewPropertyAnimator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,23 +56,54 @@ final class MomentumViewController: UIViewController {
     }
 
     private func handlePanGesture(gestureType: PanGestureType) {
-        var animator: UIViewPropertyAnimator
+        guard !animator.isRunning else { return }
         switch gestureType {
         case .strongSwipe:
-            animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                // 44はナビバー分
-                self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+            if self.isOpen {
+                self.closedTransform = .identity
+                self.cardView.transform = self.closedTransform
+            } else {
+                self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
+                self.cardView.transform = self.closedTransform
+            }
+            animator.addCompletion { (position) in
+                if position == .end { self.isOpen.toggle() }
             }
         case .overLimit:
             animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
-                self.cardView.transform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + 44)
+                if self.isOpen {
+                    self.closedTransform = .identity
+                    self.cardView.transform = self.closedTransform
+                } else {
+                    self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
+                    self.cardView.transform = self.closedTransform
+                }
+            }
+            animator.addCompletion { (position) in
+                if position == .end { self.isOpen.toggle() }
             }
         case .lowerLimit:
-            animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
-                self?.cardView.transform = .identity
+            if isOpen {
+                animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
+                    guard let self = self else { return }
+                    self.closedTransform = CGAffineTransform(translationX: 0, y: -(self.cardView.center.y - self.view.center.y) + self.navigationbarHeight)
+                    self.cardView.transform = self.closedTransform
+                }
+            } else {
+                animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.5) { [weak self] in
+                    self?.cardView.transform = .identity
+                }
             }
         }
         animator.startAnimation()
+    }
+
+    private func isOverLimit() -> Bool {
+        if isOpen {
+            return -(self.cardView.bounds.height * 0.7) < cardView.transform.ty
+        } else {
+            return cardView.transform.ty < -(self.cardView.bounds.height * 0.2)
+        }
     }
 
     @objc private func panned(gesture: UIPanGestureRecognizer) {
@@ -77,14 +111,20 @@ final class MomentumViewController: UIViewController {
         case .began:
             break
         case .changed:
-            let transition = gesture.translation(in: cardView)
-            closedTransform = CGAffineTransform(translationX: 0, y: transition.y)
-            cardView.transform = closedTransform
+            if isOpen {
+                let transition = gesture.translation(in: cardView)
+                let transform = CGAffineTransform(translationX: 0, y: transition.y)
+                cardView.transform.ty = closedTransform.ty + transform.ty
+            } else {
+                let transition = gesture.translation(in: cardView)
+                closedTransform = CGAffineTransform(translationX: 0, y: transition.y)
+                cardView.transform = closedTransform
+            }
         case .ended:
             if gesture.velocity(in: view).y < -400 {
                 handlePanGesture(gestureType: .strongSwipe)
             } else {
-                if cardView.transform.ty < -(self.cardView.bounds.height * 0.2) {
+                if isOverLimit() {
                     handlePanGesture(gestureType: .overLimit)
                 } else {
                     handlePanGesture(gestureType: .lowerLimit)
