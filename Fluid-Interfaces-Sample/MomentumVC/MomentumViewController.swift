@@ -123,7 +123,7 @@ final class MomentumViewController: UIViewController {
             let transition = gesture.translation(in: cardView)
             if isOpen {
                 let transform = CGAffineTransform(translationX: 0, y: transition.y)
-                cardView.transform.ty = closedTransform.ty + transform.ty
+                cardView.transform = closedTransform.concatenating(transform)
             } else {
                 closedTransform = CGAffineTransform(translationX: 0, y: transition.y)
                 cardView.transform = closedTransform

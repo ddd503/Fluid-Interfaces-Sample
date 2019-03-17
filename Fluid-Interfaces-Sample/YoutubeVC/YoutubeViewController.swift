@@ -25,6 +25,7 @@ final class YoutubeViewController: UIViewController {
     private var baseViewTranslationTransform = CGAffineTransform.identity
     private var imageViewTranslationTransform = CGAffineTransform.identity
     private var imageViewScaleTransform = CGAffineTransform.identity
+    private var infomationViewTranslationTransform = CGAffineTransform.identity
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,8 @@ final class YoutubeViewController: UIViewController {
             let transition = gesture.translation(in: imageView)
             if isTransform {
                 let translationTransform = CGAffineTransform(translationX: 0, y: transition.y)
-                baseView.transform.ty = baseViewTranslationTransform.ty + translationTransform.ty
+                // concatenatingでtransform開始位置をずらせる
+                baseView.transform = baseViewTranslationTransform.concatenating(translationTransform)
             } else {
                 baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y)
                 baseView.transform = baseViewTranslationTransform
