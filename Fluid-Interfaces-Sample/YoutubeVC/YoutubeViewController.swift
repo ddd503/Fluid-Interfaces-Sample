@@ -45,11 +45,13 @@ final class YoutubeViewController: UIViewController {
                 guard let self = self else { return }
                 if self.isTransform {
                     self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: 0)
-                    self.baseView.transform = self.baseViewTranslationTransform
                 } else {
-                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: self.baseView.bounds.size.height * 0.85)
-                    self.baseView.transform = self.baseViewTranslationTransform
+                    self.imageViewScaleTransform = CGAffineTransform(scaleX: 0.4, y: 0.45)
+                    self.imageViewTranslationTransform = CGAffineTransform(translationX: -120, y: -60)
+//                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: self.baseView.bounds.size.height * 0.85)
                 }
+                self.imageView.transform = self.imageViewScaleTransform.concatenating(self.imageViewTranslationTransform)
+                self.baseView.transform = self.baseViewTranslationTransform
             }
             animator.addCompletion { (position) in
                 if position == .end { self.isTransform.toggle() }
@@ -61,18 +63,18 @@ final class YoutubeViewController: UIViewController {
     @objc private func panned(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .changed:
-            let transition = gesture.translation(in: imageView)
+            let transition = isTransform ? gesture.translation(in: baseView) : gesture.translation(in: imageView)
             if isTransform {
-                let translationTransform = CGAffineTransform(translationX: 0, y: transition.y)
-                // concatenatingでtransform開始位置をずらせる
-                baseView.transform = baseViewTranslationTransform.concatenating(translationTransform)
+                // すでに変形ずみの場合
             } else {
                 baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y)
-                baseView.transform = baseViewTranslationTransform
+                let diffarence = imageView.bounds.size.height / (imageView.bounds.size.height + transition.y * 0.1)
+                imageViewScaleTransform = CGAffineTransform(scaleX: 1.0, y: diffarence)
+                imageViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y)
+                imageView.transform = imageViewScaleTransform.concatenating(imageViewTranslationTransform)
+                infomationViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y * 0.9)
+                infomationView.transform = infomationViewTranslationTransform
             }
-//            let diffarence = baseView.bounds.size.height / (baseView.bounds.size.height + transition.y)
-//            baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y)
-//            baseView.transform = baseViewTranslationTransform
         case .ended:
             transformSubViews(shouldTransform: true)
         default: break
