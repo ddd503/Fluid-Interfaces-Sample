@@ -41,22 +41,24 @@ final class YoutubeViewController: UIViewController {
 
     private func transformSubViews(shouldTransform: Bool) {
         if shouldTransform {
-            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) { [weak self] in
-                guard let self = self else { return }
-                if self.isTransform {
-                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: 0)
-                } else {
-                    self.imageViewScaleTransform = CGAffineTransform(scaleX: 0.4, y: 0.45)
-                    self.imageViewTranslationTransform = CGAffineTransform(translationX: -120, y: -60)
-//                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: self.baseView.bounds.size.height * 0.85)
-                }
-                self.imageView.transform = self.imageViewScaleTransform.concatenating(self.imageViewTranslationTransform)
-                self.baseView.transform = self.baseViewTranslationTransform
-            }
-            animator.addCompletion { (position) in
-                if position == .end { self.isTransform.toggle() }
-            }
-        } else {}
+//            animator =  UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) { [weak self] in
+//                guard let self = self else { return }
+//                if self.isTransform {
+//                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: 0)
+//                } else {
+//                    self.imageViewScaleTransform = CGAffineTransform(scaleX: 0.4, y: 0.45)
+//                    self.imageViewTranslationTransform = CGAffineTransform(translationX: -120, y: -60)
+////                    self.baseViewTranslationTransform = CGAffineTransform(translationX: 0, y: self.baseView.bounds.size.height * 0.85)
+//                }
+//                self.imageView.transform = self.imageViewScaleTransform.concatenating(self.imageViewTranslationTransform)
+//                self.baseView.transform = self.baseViewTranslationTransform
+//            }
+//            animator.addCompletion { (position) in
+//                if position == .end { self.isTransform.toggle() }
+//            }
+        } else {
+            // 動作のキャンセル
+        }
         animator.startAnimation()
     }
 
@@ -74,6 +76,7 @@ final class YoutubeViewController: UIViewController {
                 imageView.transform = imageViewScaleTransform.concatenating(imageViewTranslationTransform)
                 infomationViewTranslationTransform = CGAffineTransform(translationX: 0, y: transition.y * 0.9)
                 infomationView.transform = infomationViewTranslationTransform
+                infomationView.alpha = 1.0 - (transition.y / 200)
             }
         case .ended:
             transformSubViews(shouldTransform: true)
