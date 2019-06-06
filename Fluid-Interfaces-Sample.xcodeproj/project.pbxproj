@@ -86,10 +86,8 @@
 		457B4CA7223D807F0036FB39 /* YoutubeVC */ = {
 			isa = PBXGroup;
 			children = (
-				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
-				457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */,
-				45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */,
-				45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */,
+				45A367C422A94CBD00E0C95B /* Controller */,
+				45A367C322A94CBA00E0C95B /* Transition */,
 			);
 			path = YoutubeVC;
 			sourceTree = "<group>";
@@ -125,6 +123,24 @@
 				45839E10223D60CC00A5F567 /* UIColor+Code.swift */,
 			);
 			path = Extention;
+			sourceTree = "<group>";
+		};
+		45A367C322A94CBA00E0C95B /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		45A367C422A94CBD00E0C95B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */,
+				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
+				45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */,
+				45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		45BC8AF822283D0F00343215 = {

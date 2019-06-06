@@ -17,7 +17,7 @@ enum InterfaceType: CaseIterable {
         case .rewardingMomentum:
             return "Rewarding Momentum"
         case .youtube:
-            return "Youtube StayView"
+            return "Youtube LabelView"
         }
     }
 
@@ -26,7 +26,7 @@ enum InterfaceType: CaseIterable {
         case .rewardingMomentum:
             return "MomentumViewController"
         case .youtube:
-            return "YoutubeViewController"
+            return "YoutubeLabelViewController"
         }
     }
 
@@ -38,9 +38,9 @@ enum InterfaceType: CaseIterable {
             momentumViewController?.interfaceType = self
             return momentumViewController
         case .youtube:
-            let youtubeViewController = initialVC as? YoutubeViewController
-            youtubeViewController?.interfaceType = self
-            return youtubeViewController
+            let youtubeLabelViewController = initialVC as? YoutubeLabelViewController
+            youtubeLabelViewController?.interfaceType = self
+            return youtubeLabelViewController
         }
     }
 

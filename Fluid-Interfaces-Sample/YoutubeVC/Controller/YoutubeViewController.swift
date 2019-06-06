@@ -46,12 +46,13 @@ final class YoutubeViewController: UIViewController {
 
 extension YoutubeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "関連項目(\(indexPath.row + 1))"
+        cell.textLabel?.textColor = .white
         return cell
     }
 }
