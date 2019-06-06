@@ -35,11 +35,11 @@ enum InterfaceType: CaseIterable {
         switch self {
         case .rewardingMomentum:
             let momentumViewController = initialVC as? MomentumViewController
-            momentumViewController?.interfaceType = self
+            momentumViewController?.title = self.displayName
             return momentumViewController
         case .youtube:
             let youtubeLabelViewController = initialVC as? YoutubeLabelViewController
-            youtubeLabelViewController?.interfaceType = self
+            youtubeLabelViewController?.title = self.displayName
             return youtubeLabelViewController
         }
     }

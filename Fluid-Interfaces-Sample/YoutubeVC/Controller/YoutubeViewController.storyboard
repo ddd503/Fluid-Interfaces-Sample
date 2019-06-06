@@ -90,6 +90,7 @@
                         <outlet property="baseView" destination="sul-g6-nrd" id="vMW-GK-m2w"/>
                         <outlet property="imageView" destination="dou-9b-3tp" id="fpq-1t-qNt"/>
                         <outlet property="infomationView" destination="Azj-lC-BNK" id="DPx-Dm-heU"/>
+                        <outlet property="label" destination="47R-nO-mWp" id="YXR-7A-c7i"/>
                         <outlet property="tableView" destination="6su-gU-x8y" id="Fjg-PB-kVf"/>
                     </connections>
                 </viewController>

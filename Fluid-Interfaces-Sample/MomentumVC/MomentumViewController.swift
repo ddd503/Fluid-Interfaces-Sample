@@ -31,7 +31,6 @@ final class MomentumViewController: UIViewController {
         return view
     }()
 
-    var interfaceType: InterfaceType?
     private let navigationbarHeight: CGFloat = 44
     private var closedTransform = CGAffineTransform()
     private var isOpen = false
@@ -39,7 +38,6 @@ final class MomentumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = interfaceType?.displayName
         layoutSubView()
     }
 

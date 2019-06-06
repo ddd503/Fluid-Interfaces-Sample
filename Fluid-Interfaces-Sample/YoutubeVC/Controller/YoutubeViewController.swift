@@ -8,18 +8,17 @@
 
 import UIKit
 
-final class YoutubeViewController: UIViewController {
+final class YoutubeViewController: UIViewController, DestinationTransitionType {
 
-    @IBOutlet private weak var baseView: UIView!
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet private weak var infomationView: UIView!
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
         }
     }
-
-    var interfaceType: InterfaceType?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,19 +26,7 @@ final class YoutubeViewController: UIViewController {
     }
 
     private func setup() {
-        title = interfaceType?.displayName
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(gesture:)))
-        imageView.addGestureRecognizer(panGesture)
-    }
 
-    @objc private func panned(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case .changed:
-            print("changed")
-        case .ended:
-            print("ended")
-        default: break
-        }
     }
 
 }
