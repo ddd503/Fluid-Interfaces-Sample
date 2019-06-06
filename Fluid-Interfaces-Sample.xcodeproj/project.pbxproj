@@ -16,6 +16,8 @@
 		45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */; };
 		45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E0D223D5ED100A5F567 /* GradientView.swift */; };
 		45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E10223D60CC00A5F567 /* UIColor+Code.swift */; };
+		45A367C022A9455500E0C95B /* YoutubeLabelViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */; };
+		45A367C222A9456300E0C95B /* YoutubeLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MomentumViewController.storyboard; sourceTree = "<group>"; };
 		45839E0D223D5ED100A5F567 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45839E10223D60CC00A5F567 /* UIColor+Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Code.swift"; sourceTree = "<group>"; };
+		45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YoutubeLabelViewController.storyboard; sourceTree = "<group>"; };
+		45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeLabelViewController.swift; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			children = (
 				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
 				457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */,
+				45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */,
+				45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */,
 			);
 			path = YoutubeVC;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 				TargetAttributes = {
 					45BC8B0022283D0F00343215 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -229,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A367C022A9455500E0C95B /* YoutubeLabelViewController.storyboard in Resources */,
 				45BC8B0F22283D1000343215 /* LaunchScreen.storyboard in Resources */,
 				45BC8B0C22283D1000343215 /* Assets.xcassets in Resources */,
 				457B4CAB223D82D70036FB39 /* YoutubeViewController.storyboard in Resources */,
@@ -252,6 +260,7 @@
 				45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */,
 				45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */,
 				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,
+				45A367C222A9456300E0C95B /* YoutubeLabelViewController.swift in Sources */,
 				457B4CA9223D82CF0036FB39 /* YoutubeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Fluid-Interfaces-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -425,7 +434,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Fluid-Interfaces-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

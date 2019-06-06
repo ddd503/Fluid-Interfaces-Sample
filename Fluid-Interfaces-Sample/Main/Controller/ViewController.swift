@@ -9,14 +9,12 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
             collectionView.delegate = self
         }
     }
-
 }
 
 extension ViewController: UICollectionViewDataSource {

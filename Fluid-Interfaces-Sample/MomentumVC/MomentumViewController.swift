@@ -16,7 +16,7 @@ final class MomentumViewController: UIViewController {
         view.topColor = UIColor(hex: 0x61A8FF)
         view.bottomColor = UIColor(hex: 0x243BD1)
         view.frame.size = CGSize(width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.8)
-        view.frame.origin.y = self.view.bounds.height * 0.85
+        view.frame.origin.y = self.view.bounds.height * 0.9
         view.center.x = self.view.center.x
         view.cornerRadius = 10
         return view
