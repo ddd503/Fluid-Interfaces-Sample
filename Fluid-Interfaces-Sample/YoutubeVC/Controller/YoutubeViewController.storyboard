@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="226.5" width="375" height="420.5"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6su-gU-x8y">
-                                                <rect key="frame" x="0.0" y="50" width="375" height="370.5"/>
+                                                <rect key="frame" x="0.0" y="55" width="375" height="365.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
@@ -45,9 +45,9 @@
                                                 <sections/>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47R-nO-mWp">
-                                                <rect key="frame" x="15" y="15" width="345" height="20"/>
+                                                <rect key="frame" x="15" y="15" width="345" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -82,7 +82,7 @@
                             <constraint firstItem="sul-g6-nrd" firstAttribute="centerX" secondItem="cOP-ZB-cQL" secondAttribute="centerX" id="4tc-tq-Z4E"/>
                             <constraint firstAttribute="bottom" secondItem="sul-g6-nrd" secondAttribute="bottom" id="C7s-Ou-OUh"/>
                             <constraint firstItem="sul-g6-nrd" firstAttribute="width" secondItem="nIM-k3-P6A" secondAttribute="width" id="Lfm-b0-v6V"/>
-                            <constraint firstItem="sul-g6-nrd" firstAttribute="top" secondItem="cOP-ZB-cQL" secondAttribute="top" priority="750" id="Qrz-LA-jHv"/>
+                            <constraint firstItem="sul-g6-nrd" firstAttribute="top" secondItem="cOP-ZB-cQL" secondAttribute="top" id="Qrz-LA-jHv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cOP-ZB-cQL"/>
                     </view>

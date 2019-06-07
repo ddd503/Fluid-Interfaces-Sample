@@ -10,17 +10,17 @@ import UIKit
 
 final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
     weak var navigationController: UINavigationController!
-    let isPushTransition: Bool
     weak var presenting: SourceTransitionType?
     weak var presented: DestinationTransitionType?
+    let isPushTransition: Bool
     var interactionInProgress = false
     private var shouldCompleteTransition = false
 
-    init(navigationController: UINavigationController, isPushTransition: Bool, presenting: SourceTransitionType, presented: DestinationTransitionType) {
+    init(navigationController: UINavigationController, presenting: SourceTransitionType, presented: DestinationTransitionType, isPushTransition: Bool) {
         self.navigationController = navigationController
-        self.isPushTransition = isPushTransition
         self.presenting = presenting
         self.presented = presented
+        self.isPushTransition = isPushTransition
         super.init()
         setupTransitionGesture(view: self.presented?.imageView)
     }

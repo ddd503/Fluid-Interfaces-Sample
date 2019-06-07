@@ -9,7 +9,6 @@
 import UIKit
 
 final class YoutubeLabelViewController: UIViewController, SourceTransitionType {
-
     @IBOutlet var labelView: UIView!
     @IBOutlet var label: UILabel!
     @IBOutlet var imageView: UIImageView!
@@ -19,6 +18,11 @@ final class YoutubeLabelViewController: UIViewController, SourceTransitionType {
         navigationController?.delegate = self
     }
 
+    @IBAction func didTapLabelView(_ sender: UITapGestureRecognizer) {
+        guard let youtubeVC = UIStoryboard(name: String(describing: YoutubeViewController.self), bundle: .main).instantiateInitialViewController() as? YoutubeViewController else { return }
+        youtubeVC.setInfo(title: title, sourceTransitionType: self)
+        navigationController?.pushViewController(youtubeVC, animated: true)
+    }
 }
 
 extension YoutubeLabelViewController: UINavigationControllerDelegate {
@@ -29,7 +33,10 @@ extension YoutubeLabelViewController: UINavigationControllerDelegate {
 
         switch operation {
         case .push:
-            return nil
+            guard let presenting = fromVC as? SourceTransitionType, let presented = toVC as? DestinationTransitionType else {
+                return nil
+            }
+            return TransitionAnimator(presenting: presenting, presented: presented, isPushTransition: true, duration: 5.0)
         case .pop:
             return nil
         default:

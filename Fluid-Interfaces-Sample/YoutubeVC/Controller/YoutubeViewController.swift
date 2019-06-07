@@ -9,7 +9,6 @@
 import UIKit
 
 final class YoutubeViewController: UIViewController, DestinationTransitionType {
-
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,15 +19,20 @@ final class YoutubeViewController: UIViewController, DestinationTransitionType {
         }
     }
 
+    var image: UIImage?
+    var text: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        imageView.image = image
+        label.text = text
     }
 
-    private func setup() {
-
+    func setInfo(title: String?, sourceTransitionType: SourceTransitionType) {
+        self.title = title
+        self.image = sourceTransitionType.imageView.image
+        self.text = sourceTransitionType.label.text
     }
-
 }
 
 extension YoutubeViewController: UITableViewDataSource {

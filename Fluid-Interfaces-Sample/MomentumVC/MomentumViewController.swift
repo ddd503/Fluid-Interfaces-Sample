@@ -9,7 +9,6 @@
 import UIKit
 
 final class MomentumViewController: UIViewController {
-
     private lazy var cardView: GradientView = {
         let view = GradientView()
         view.backgroundColor = UIColor(white: 0.3, alpha: 1)
@@ -145,5 +144,4 @@ final class MomentumViewController: UIViewController {
             cardViewAnimation(shouldMove: true)
         }
     }
-
 }
