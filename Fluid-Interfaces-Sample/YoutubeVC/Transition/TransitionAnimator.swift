@@ -30,29 +30,37 @@ final class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         presented.view.layoutIfNeeded()
         presented.view.alpha = 0
 
-        let animationView = UIView(frame: presented.view.frame)
+        let animationView = UIView(frame: presented.view.bounds)
         animationView.backgroundColor = .clear
-        let baseView = UIView(frame: presenting.labelView.frame)
+        let baseView = UIView(frame: .zero)
         baseView.backgroundColor = .red
+        baseView.frame.size = presenting.labelView.frame.size
+        baseView.frame.origin = presenting.labelView.frame.origin
         animationView.addSubview(baseView)
         let imageView = UIImageView(image: presenting.imageView.image)
-        imageView.frame.origin = presenting.labelView.convert(presenting.imageView.frame.origin, to: presenting.view)
-        imageView.frame.size = presenting.imageView.frame.size
+        imageView.frame = presenting.labelView.convert(presenting.imageView.frame, to: presenting.view)
         animationView.addSubview(imageView)
-        let label = UILabel(frame: presenting.label.frame)
+        let label = UILabel(frame: presenting.labelView.convert(presenting.label.frame, to: presenting.view))
         label.text = presenting.label.text
         label.font = presenting.label.font
         label.textColor = presenting.label.textColor
         animationView.addSubview(label)
         containerView.addSubview(animationView)
 
-        UIView.animate(withDuration: duration, animations: {
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            guard let self = self else {
+                transitionContext.cancelInteractiveTransition()
+                return
+            }
             baseView.frame = self.presented.baseView.frame
             baseView.alpha = 0
-            imageView.frame = self.presented.imageView.frame
-        }) { (_) in
+            imageView.frame = self.presented.baseView.convert(self.presented.imageView.frame, to: self.presented.view)
+            label.frame = self.presented.baseView.convert(self.presented.label.frame, to: self.presented.view)
+        }) { [weak self] (_) in
+            self?.presented.view.alpha = 1.0
             animationView.removeFromSuperview()
-            transitionContext.completeTransition(true)
+            let isComplete = !transitionContext.transitionWasCancelled
+            transitionContext.completeTransition(isComplete)
         }
     }
 }

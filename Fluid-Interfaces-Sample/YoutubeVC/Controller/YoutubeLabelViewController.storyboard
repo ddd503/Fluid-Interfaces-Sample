@@ -27,7 +27,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJX-p3-kWk">
                                 <rect key="frame" x="0.0" y="772.5" width="414" height="89.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotel" translatesAutoresizingMaskIntoConstraints="NO" id="qOD-Gx-FGK">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotel" translatesAutoresizingMaskIntoConstraints="NO" id="qOD-Gx-FGK">
                                         <rect key="frame" x="35" y="9" width="95.5" height="71.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qOD-Gx-FGK" secondAttribute="height" multiplier="4:3" id="Vgg-GH-4Lp"/>
