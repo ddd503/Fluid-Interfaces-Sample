@@ -16,6 +16,7 @@ protocol SourceTransitionType: UIViewController {
 
 protocol DestinationTransitionType: UIViewController {
     var baseView: UIView! { get }
-    var label: UILabel! { get }
     var imageView: UIImageView! { get }
+    var label: UILabel! { get }
+    var infomationView: UIView! { get }
 }
