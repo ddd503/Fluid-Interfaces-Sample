@@ -96,14 +96,21 @@ final class TransitionAnimator: NSObject {
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
             animationView.frame = self.presenting.labelView.frame
-            imageView.frame = self.presenting.imageView.frame
+            imageView.frame.origin.y = self.presenting.imageView.frame.origin.y
             infomationImageView.alpha = 0
         }
+
+        // 遅延実行アニメーションを追加
+        animator.addAnimations({
+            imageView.frame.origin.x = self.presenting.imageView.frame.origin.x
+            imageView.frame.size = self.presenting.imageView.frame.size
+        }, delayFactor: 0.5)
 
         animator.addAnimations({
             label.alpha = 1.0
         }, delayFactor: 0.8)
 
+        // 完了後処理を追加
         animator.addCompletion { (_) in
             animationView.removeFromSuperview()
             label.removeFromSuperview()
