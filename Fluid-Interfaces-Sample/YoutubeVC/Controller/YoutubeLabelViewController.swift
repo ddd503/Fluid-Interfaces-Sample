@@ -36,11 +36,13 @@ extension YoutubeLabelViewController: UINavigationControllerDelegate {
             guard let presenting = fromVC as? SourceTransitionType, let presented = toVC as? DestinationTransitionType else {
                 return nil
             }
-            return TransitionAnimator(presenting: presenting, presented: presented, isPushTransition: true, duration: 5.0)
+            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: true, duration: 1.0)
         case .pop:
-            return nil
-        default:
-            return nil
+            guard let presenting = toVC as? SourceTransitionType, let presented = fromVC as? DestinationTransitionType else {
+                return nil
+            }
+            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: false, duration: 1.0)
+        default: return nil
         }
     }
 }
