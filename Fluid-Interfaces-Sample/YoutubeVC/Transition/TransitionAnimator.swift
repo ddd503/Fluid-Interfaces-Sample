@@ -7,17 +7,21 @@
 //
 
 import UIKit
+
 final class TransitionAnimator: NSObject {
     weak var presenting: SourceTransitionType!
     weak var presented: DestinationTransitionType!
     let isPresent: Bool
     let duration: TimeInterval
+    let animationInstractor: AnimationInstractor
 
-    init(presenting: SourceTransitionType, presented: DestinationTransitionType, isPresent: Bool, duration: TimeInterval) {
+    init(presenting: SourceTransitionType, presented: DestinationTransitionType,
+         isPresent: Bool, duration: TimeInterval, animationInstractor: AnimationInstractor) {
         self.presenting = presenting
         self.presented = presented
         self.isPresent = isPresent
         self.duration = duration
+        self.animationInstractor = animationInstractor
     }
 
     func pushTransitionAnimation(transitionContext: UIViewControllerContextTransitioning) {

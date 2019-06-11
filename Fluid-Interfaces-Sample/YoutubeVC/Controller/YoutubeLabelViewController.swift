@@ -18,30 +18,39 @@ final class YoutubeLabelViewController: UIViewController, SourceTransitionType {
         navigationController?.delegate = self
     }
 
-    @IBAction func didTapLabelView(_ sender: UITapGestureRecognizer) {
+    @IBAction func didTapButton(_ sender: UIButton) {
         guard let youtubeVC = UIStoryboard(name: String(describing: YoutubeViewController.self), bundle: .main).instantiateInitialViewController() as? YoutubeViewController else { return }
         youtubeVC.setInfo(title: title, sourceTransitionType: self)
         navigationController?.pushViewController(youtubeVC, animated: true)
-    }
+    }   
 }
 
 extension YoutubeLabelViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        guard let transitionAnimator = animationController as? TransitionAnimator else { return nil }
+        return transitionAnimator.animationInstractor
     }
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         switch operation {
         case .push:
-            guard let presenting = fromVC as? SourceTransitionType, let presented = toVC as? DestinationTransitionType else {
-                return nil
-            }
-            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: true, duration: 1.0)
+            guard let presenting = fromVC as? SourceTransitionType,
+                let presented = toVC as? DestinationTransitionType else { return nil }
+
+            let animationInstractor = AnimationInstractor(navigationController: navigationController,
+                                                          presenting: presenting, presented: presented, isPresent: true)
+
+            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: true,
+                                      duration: 1.0, animationInstractor: animationInstractor)
         case .pop:
-            guard let presenting = toVC as? SourceTransitionType, let presented = fromVC as? DestinationTransitionType else {
-                return nil
-            }
-            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: false, duration: 1.0)
+            guard let presenting = toVC as? SourceTransitionType,
+                let presented = fromVC as? DestinationTransitionType else { return nil }
+
+            let animationInstractor = AnimationInstractor(navigationController: navigationController,
+                                                          presenting: presenting, presented: presented, isPresent: false)
+
+            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: false,
+                                      duration: 1.0, animationInstractor: animationInstractor)
         default: return nil
         }
     }

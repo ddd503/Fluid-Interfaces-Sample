@@ -12,34 +12,42 @@ final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
     weak var navigationController: UINavigationController!
     weak var presenting: SourceTransitionType?
     weak var presented: DestinationTransitionType?
-    let isPushTransition: Bool
+    let isPresent: Bool
     var interactionInProgress = false
     private var shouldCompleteTransition = false
 
-    init(navigationController: UINavigationController, presenting: SourceTransitionType, presented: DestinationTransitionType, isPushTransition: Bool) {
+    init(navigationController: UINavigationController, presenting: SourceTransitionType, presented: DestinationTransitionType, isPresent: Bool) {
         self.navigationController = navigationController
         self.presenting = presenting
         self.presented = presented
-        self.isPushTransition = isPushTransition
+        self.isPresent = isPresent
         super.init()
-        setupTransitionGesture(view: self.presented?.imageView)
+        if self.isPresent {
+            setupPanGesture(view: self.presenting?.labelView)
+        } else {
+            setupPanGesture(view: self.presented?.imageView)
+        }
     }
 
-    private func setupTransitionGesture(view : UIView?) {
+    private func setupPanGesture(view : UIView?) {
         guard let view = view else { return }
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleTransitionGesture(_:)))
         view.addGestureRecognizer(panGesture)
     }
 
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
-        guard let targetView = self.presented?.imageView else { return }
+        guard let targetView = isPresent ? presenting?.view : presented?.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
-        let progress = viewTranslation.x / targetView.frame.width
+        let progress = viewTranslation.y / targetView.frame.height
 
         switch gesture.state {
         case .began:
             interactionInProgress = true
-            navigationController.popViewController(animated: true)
+            if isPresent, let presented = presented {
+                navigationController.pushViewController(presented, animated: true)
+            } else {
+                navigationController.popViewController(animated: true)
+            }
         case .changed:
             // 中心以上スワイプしたら
             shouldCompleteTransition = progress > 0.5
