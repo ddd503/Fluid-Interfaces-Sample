@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the label !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-U8-aFa">
-                                <rect key="frame" x="45" y="424.5" width="324.5" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-U8-aFa">
+                                <rect key="frame" x="53" y="424.5" width="308" height="47"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="47"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -27,46 +27,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJX-p3-kWk">
                                 <rect key="frame" x="0.0" y="772.5" width="414" height="89.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotel" translatesAutoresizingMaskIntoConstraints="NO" id="qOD-Gx-FGK">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qOD-Gx-FGK">
                                         <rect key="frame" x="35" y="9" width="95.5" height="71.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qOD-Gx-FGK" secondAttribute="height" multiplier="4:3" id="Vgg-GH-4Lp"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Green Garden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-PL-9GA">
-                                        <rect key="frame" x="150.5" y="34.5" width="253.5" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-PL-9GA">
+                                        <rect key="frame" x="150.5" y="44.5" width="253.5" height="0.0"/>
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm8-WL-8tv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
-                                        <connections>
-                                            <action selector="didTapButton:" destination="px3-TE-Kee" eventType="touchUpInside" id="uIP-TL-0ub"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="mm8-WL-8tv" firstAttribute="top" secondItem="jJX-p3-kWk" secondAttribute="top" id="2o2-xA-old"/>
-                                    <constraint firstAttribute="trailing" secondItem="mm8-WL-8tv" secondAttribute="trailing" id="3kf-1h-tT5"/>
                                     <constraint firstAttribute="trailing" secondItem="jYg-PL-9GA" secondAttribute="trailing" constant="10" id="8Ha-Kq-Qdq"/>
-                                    <constraint firstItem="mm8-WL-8tv" firstAttribute="leading" secondItem="jJX-p3-kWk" secondAttribute="leading" id="Aep-1v-tj6"/>
                                     <constraint firstItem="qOD-Gx-FGK" firstAttribute="height" secondItem="jJX-p3-kWk" secondAttribute="height" multiplier="0.8" id="BW7-ob-PoJ"/>
                                     <constraint firstItem="jYg-PL-9GA" firstAttribute="leading" secondItem="qOD-Gx-FGK" secondAttribute="trailing" constant="20" id="FRA-YV-13Y"/>
                                     <constraint firstItem="jYg-PL-9GA" firstAttribute="centerY" secondItem="qOD-Gx-FGK" secondAttribute="centerY" id="GTg-iW-Abi"/>
                                     <constraint firstItem="qOD-Gx-FGK" firstAttribute="centerX" secondItem="jJX-p3-kWk" secondAttribute="centerX" multiplier="0.4" id="Hnj-yd-peb"/>
-                                    <constraint firstAttribute="bottom" secondItem="mm8-WL-8tv" secondAttribute="bottom" id="d9C-xu-Oj1"/>
                                     <constraint firstItem="qOD-Gx-FGK" firstAttribute="centerY" secondItem="jJX-p3-kWk" secondAttribute="centerY" id="q4I-71-VPG"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXP-6Q-3Dz">
-                                <rect key="frame" x="176" y="501.5" width="62" height="90"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -74,8 +58,6 @@
                             <constraint firstItem="jJX-p3-kWk" firstAttribute="centerX" secondItem="wHp-3F-hkl" secondAttribute="centerX" id="Coz-cw-khE"/>
                             <constraint firstItem="xuX-U8-aFa" firstAttribute="centerY" secondItem="wHp-3F-hkl" secondAttribute="centerY" id="e6I-eg-MnA"/>
                             <constraint firstItem="iLc-Fc-KLR" firstAttribute="bottom" secondItem="jJX-p3-kWk" secondAttribute="bottom" id="jgB-2C-lDY"/>
-                            <constraint firstItem="jXP-6Q-3Dz" firstAttribute="top" secondItem="xuX-U8-aFa" secondAttribute="bottom" constant="30" id="oJ1-iA-Ca2"/>
-                            <constraint firstItem="jXP-6Q-3Dz" firstAttribute="centerX" secondItem="wHp-3F-hkl" secondAttribute="centerX" id="xNI-xF-Ss3"/>
                             <constraint firstItem="xuX-U8-aFa" firstAttribute="centerX" secondItem="wHp-3F-hkl" secondAttribute="centerX" id="zB2-uu-Hk6"/>
                             <constraint firstItem="jJX-p3-kWk" firstAttribute="width" secondItem="wHp-3F-hkl" secondAttribute="width" id="zBa-Tq-5iq"/>
                         </constraints>
@@ -92,7 +74,4 @@
             <point key="canvasLocation" x="269.56521739130437" y="161.38392857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="hotel" width="640" height="360"/>
-    </resources>
 </document>

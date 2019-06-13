@@ -12,17 +12,23 @@ final class YoutubeLabelViewController: UIViewController, SourceTransitionType {
     @IBOutlet var labelView: UIView!
     @IBOutlet var label: UILabel!
     @IBOutlet var imageView: UIImageView!
+    var image: UIImage?
+    var text: String?
+
+    class func make(image: UIImage, text: String) -> YoutubeLabelViewController {
+        let youtubeLabelVC = UIStoryboard(name: String(describing: YoutubeLabelViewController.self), bundle: .main).instantiateInitialViewController() as! YoutubeLabelViewController
+        youtubeLabelVC.image = image
+        youtubeLabelVC.text = text
+        return youtubeLabelVC
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
+        imageView.image = image
+        label.text = label.text
     }
 
-    @IBAction func didTapButton(_ sender: UIButton) {
-        guard let youtubeVC = UIStoryboard(name: String(describing: YoutubeViewController.self), bundle: .main).instantiateInitialViewController() as? YoutubeViewController else { return }
-        youtubeVC.setInfo(title: title, sourceTransitionType: self)
-        navigationController?.pushViewController(youtubeVC, animated: true)
-    }   
 }
 
 extension YoutubeLabelViewController: UINavigationControllerDelegate {

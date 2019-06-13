@@ -19,20 +19,11 @@ final class YoutubeViewController: UIViewController, DestinationTransitionType {
         }
     }
 
-    var image: UIImage?
-    var text: String?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
-        label.text = text
+        // ジェスチャーのセット（初回のみのやつ）
     }
 
-    func setInfo(title: String?, sourceTransitionType: SourceTransitionType) {
-        self.title = title
-        self.image = sourceTransitionType.imageView.image
-        self.text = sourceTransitionType.label.text
-    }
 }
 
 extension YoutubeViewController: UITableViewDataSource {

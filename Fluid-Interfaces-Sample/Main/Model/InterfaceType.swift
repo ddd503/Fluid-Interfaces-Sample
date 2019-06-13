@@ -26,7 +26,7 @@ enum InterfaceType: CaseIterable {
         case .rewardingMomentum:
             return "MomentumViewController"
         case .youtube:
-            return "YoutubeLabelViewController"
+            return "YoutubeViewController"
         }
     }
 
@@ -38,7 +38,7 @@ enum InterfaceType: CaseIterable {
             momentumViewController?.title = self.displayName
             return momentumViewController
         case .youtube:
-            let youtubeLabelViewController = initialVC as? YoutubeLabelViewController
+            let youtubeLabelViewController = initialVC as? YoutubeViewController
             youtubeLabelViewController?.title = self.displayName
             return youtubeLabelViewController
         }
