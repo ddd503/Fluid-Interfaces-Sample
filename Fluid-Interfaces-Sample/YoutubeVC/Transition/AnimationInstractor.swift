@@ -11,7 +11,8 @@ import UIKit
 final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
     weak var navigationController: UINavigationController!
     weak var presenting: SourceTransitionType?
-    weak var presented: DestinationTransitionType?
+    // memory leak 防止する
+    var presented: DestinationTransitionType?
     let isPresent: Bool
     var interactionInProgress = false
     private var shouldCompleteTransition = false
@@ -23,9 +24,9 @@ final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
         self.isPresent = isPresent
         super.init()
         if self.isPresent {
-            setupPanGesture(view: self.presenting?.labelView)
+            setupPanGesture(view: self.presenting?.imageView)
         } else {
-            setupPanGesture(view: self.presented?.imageView)
+            setupPanGesture(view: self.presented?.labelView)
         }
     }
 
