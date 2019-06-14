@@ -79,18 +79,24 @@ final class TransitionAnimator: NSObject {
     func popTranshitionAnimation(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         containerView.insertSubview(presenting.view, at: 0)
-        let animationView = UIView(frame: presented.view.frame)
-        animationView.backgroundColor = .clear
-        let labelView = UIView(frame: presented.labelView.frame)
-        labelView.backgroundColor = .darkGray
+        let animationView = UIView(frame: presented.labelView.frame)
+        animationView.backgroundColor = .darkGray
+        let labelView = UIView(frame: .zero)
+        labelView.frame.size = presented.labelView.frame.size
+        labelView.backgroundColor = .clear
         animationView.addSubview(labelView)
         let imageView = UIImageView(image: presented.imageView.image)
         imageView.frame = presented.imageView.frame
         labelView.addSubview(imageView)
+        let infomationView = presenting.infomationView.snapshotView(afterScreenUpdates: true) ?? UIView()
+        infomationView.alpha = 0
+        infomationView.frame.origin.y = presented.labelView.frame.height
+        labelView.addSubview(infomationView)
         let label = presented.label.snapshotView(afterScreenUpdates: true) ?? UIView()
         label.frame = presented.label.frame
         labelView.addSubview(label)
         containerView.addSubview(animationView)
+
 
         UIView.animate(withDuration: duration / 3) {
             label.alpha = 0
@@ -101,8 +107,11 @@ final class TransitionAnimator: NSObject {
                 transitionContext.cancelInteractiveTransition()
                 return
             }
+            animationView.frame = self.presenting.view.frame
             labelView.frame = self.presenting.baseView.frame
             imageView.frame = self.presenting.imageView.frame
+            infomationView.frame = self.presenting.infomationView.frame
+            infomationView.alpha = 1
         }) { [weak self] (_) in
             animationView.removeFromSuperview()
             self?.presented.view.removeFromSuperview()
