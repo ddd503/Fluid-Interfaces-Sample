@@ -28,33 +28,29 @@ final class TransitionAnimator: NSObject {
         let containerView = transitionContext.containerView
         containerView.addSubview(presented.view)
         presented.view.layoutIfNeeded()
-//        presented.view.alpha = 0
 
-        let animationView = UIView(frame: presenting.view.frame)
-        animationView.backgroundColor = .darkGray
         let baseView = UIView(frame: presenting.baseView.frame)
-//        baseView.frame.size = presenting.baseView.frame.size
-        baseView.backgroundColor = .clear
+        baseView.backgroundColor = .darkGray
         let imageView = UIImageView(image: presenting.imageView.image)
         imageView.frame = presenting.imageView.frame
         baseView.addSubview(imageView)
         let infomationImageView = presenting.infomationView.snapshotView(afterScreenUpdates: true) ?? UIView()
         infomationImageView.frame = presenting.infomationView.frame
         baseView.addSubview(infomationImageView)
-        animationView.addSubview(baseView)
-        containerView.addSubview(animationView)
+        containerView.addSubview(baseView)
 
-        let label = UILabel(frame: presented.labelView.convert(presenting.label.frame, to: presenting.view))
-        label.text = presenting.label.text
-        label.font = presenting.label.font
+        let presentedLabelFrame = presented.labelView.convert(presented.label.frame, to: presented.view)
+        let label = UILabel(frame: presentedLabelFrame)
+        label.frame.origin.x = presentedLabelFrame.origin.x * 2.5
+        label.text = presented.label.text
+        label.font = presented.label.font
         label.textColor = presenting.label.textColor
         label.alpha = 0
         containerView.addSubview(label)
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-            animationView.frame = self.presented.labelView.frame
-//            baseView.frame = self.presented.view.convert(self.presented.labelView.frame, to: self.presented.view)
-            imageView.frame.origin.y = self.presented.labelView.convert(self.presented.imageView.frame.origin, to: self.presented.view).y
+            baseView.frame = self.presented.labelView.frame
+            imageView.frame.origin.y = self.presented.imageView.frame.origin.y
             infomationImageView.alpha = 0
         }
 
@@ -65,12 +61,13 @@ final class TransitionAnimator: NSObject {
         }, delayFactor: 0.5)
 
         animator.addAnimations({
+            label.frame = presentedLabelFrame
             label.alpha = 1.0
         }, delayFactor: 0.8)
 
         // 完了後処理を追加
         animator.addCompletion { (_) in
-            animationView.removeFromSuperview()
+            baseView.removeFromSuperview()
             label.removeFromSuperview()
             let isComplete = !transitionContext.transitionWasCancelled
             transitionContext.completeTransition(isComplete)
@@ -82,9 +79,6 @@ final class TransitionAnimator: NSObject {
     func popTranshitionAnimation(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         containerView.insertSubview(presenting.view, at: 0)
-//        // 最後に消す？
-//        presented.view.alpha = 0
-
         let animationView = UIView(frame: presented.view.frame)
         animationView.backgroundColor = .clear
         let labelView = UIView(frame: presented.labelView.frame)
@@ -110,9 +104,9 @@ final class TransitionAnimator: NSObject {
             labelView.frame = self.presenting.baseView.frame
             imageView.frame = self.presenting.imageView.frame
         }) { [weak self] (_) in
-//            self?.presented.view.alpha = 1.0
             animationView.removeFromSuperview()
-//            label.removeFromSuperview()
+            self?.presented.view.removeFromSuperview()
+            label.removeFromSuperview()
             let isComplete = !transitionContext.transitionWasCancelled
             transitionContext.completeTransition(isComplete)
         }

@@ -81,7 +81,7 @@ extension YoutubeViewController: UINavigationControllerDelegate {
                                                           presenting: presenting, presented: presented, isPresent: true)
 
             return TransitionAnimator(presenting: presenting, presented: presented, isPresent: true,
-                                      duration: 5, animationInstractor: animationInstractor)
+                                      duration: 1.0, animationInstractor: animationInstractor)
         case .pop:
             guard let presenting = toVC as? SourceTransitionType,
                 let presented = fromVC as? DestinationTransitionType else { return nil }

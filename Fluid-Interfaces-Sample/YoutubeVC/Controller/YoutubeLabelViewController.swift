@@ -25,7 +25,7 @@ final class YoutubeLabelViewController: UIViewController, DestinationTransitionT
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
-        label.text = label.text
+        label.text = text
     }
 
 }
