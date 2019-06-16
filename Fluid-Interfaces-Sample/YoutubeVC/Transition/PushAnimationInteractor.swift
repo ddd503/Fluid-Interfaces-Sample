@@ -1,34 +1,26 @@
 //
-//  AnimationInstractor.swift
+//  PushAnimationInteractor.swift
 //  Fluid-Interfaces-Sample
 //
-//  Created by kawaharadai on 2019/06/06.
+//  Created by kawaharadai on 2019/06/16.
 //  Copyright © 2019 kawaharadai. All rights reserved.
 //
 
 import UIKit
 
-final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
-    weak var navigationController: UINavigationController!
-    weak var presenting: SourceTransitionType?
-    // memory leak 防止する
-    var presented: DestinationTransitionType?
-    let isPresent: Bool
+final class PushAnimationInteractor: UIPercentDrivenInteractiveTransition {
+    let navigationController: UINavigationController
+    let presenting: SourceTransitionType
+    let presented: DestinationTransitionType
     var interactionInProgress = false
     private var shouldCompleteTransition = false
 
-    init(navigationController: UINavigationController, presentingVC: UIViewController, presentedVC: UIViewController, isPresent: Bool) {
+    init(navigationController: UINavigationController, presenting: SourceTransitionType, presented: DestinationTransitionType) {
         self.navigationController = navigationController
-        self.presenting = presentingVC as? SourceTransitionType
-        self.presented = (presentedVC as! DestinationTransitionType)
-        self.isPresent = isPresent
+        self.presenting = presenting
+        self.presented = presented
         super.init()
-        
-        if self.isPresent {
-            setupPanGesture(view: self.presenting?.imageView)
-        } else {
-            setupPanGesture(view: self.presented?.labelView)
-        }
+        setupPanGesture(view: self.presenting.imageView)
     }
 
     private func setupPanGesture(view : UIView?) {
@@ -38,18 +30,14 @@ final class AnimationInstractor: UIPercentDrivenInteractiveTransition {
     }
 
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
-        guard let targetView = isPresent ? presenting?.view : presented?.view else { return }
+        guard let targetView = presenting.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
         let progress = viewTranslation.y / targetView.frame.height
 
         switch gesture.state {
         case .began:
             interactionInProgress = true
-            if isPresent, let presented = presented {
-                navigationController.pushViewController(presented, animated: true)
-            } else {
-                navigationController.popViewController(animated: true)
-            }
+            navigationController.pushViewController(presented, animated: true)
         case .changed:
             // 中心以上スワイプしたら
             shouldCompleteTransition = progress > 0.5

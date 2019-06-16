@@ -19,9 +19,6 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
         }
     }
 
-    var pushTransitionAnimator: UIViewControllerAnimatedTransitioning?
-    var popTransitionAnimator: UIViewControllerAnimatedTransitioning?
-    var animator: AnimationInstractor?
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationController = navigationController else { return }
@@ -54,43 +51,31 @@ extension YoutubeViewController: UITableViewDataSource {
 
 extension YoutubeViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        guard let transitionAnimator = animationController as? TransitionAnimator else { return nil }
-//        return transitionAnimator.animationInstractor
-        return nil
+
+        guard let transitionAnimator = animationController as? TransitionAnimator else {
+            return nil
+        }
+
+        if transitionAnimator.isPresent,
+            let pushAnimationInteractor = transitionAnimator.pushAnimationInteractor,
+            pushAnimationInteractor.interactionInProgress {
+            return pushAnimationInteractor
+        } else if let popAnimationInteractor = transitionAnimator.popAnimationInteractor,
+            popAnimationInteractor.interactionInProgress {
+            return popAnimationInteractor
+        } else {
+            return nil
+        }
     }
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-//        switch operation {
-//        case .push:
-//            pushTransitionAnimator = TransitionAnimator(presenting: fromVC as! SourceTransitionType,
-//                                                        presented: toVC as! DestinationTransitionType,
-//                                                        isPresent: true,
-//                                                        duration: 1.0,
-//                                                        animationInstractor: animator!)
-//            return pushTransitionAnimator
-//        case .pop:
-//            return popTransitionAnimator
-//        default: return nil
-//        }
         switch operation {
         case .push:
-            guard let presenting = fromVC as? SourceTransitionType,
-                let presented = toVC as? DestinationTransitionType else { return nil }
-
-            let animationInstractor = AnimationInstractor(navigationController: navigationController,
-                                                          presenting: presenting, presented: presented, isPresent: true)
-
-            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: true,
-                                      duration: 1.0, animationInstractor: animationInstractor)
+            guard let presented = toVC as? DestinationTransitionType else { return nil }
+            return TransitionAnimator(presenting: self, presented: presented, isPresent: true, duration: 1.0, interactiveTransition: PushAnimationInteractor(navigationController: navigationController, presenting: self, presented: presented))
         case .pop:
-            guard let presenting = toVC as? SourceTransitionType,
-                let presented = fromVC as? DestinationTransitionType else { return nil }
-
-            let animationInstractor = AnimationInstractor(navigationController: navigationController,
-                                                          presenting: presenting, presented: presented, isPresent: false)
-
-            return TransitionAnimator(presenting: presenting, presented: presented, isPresent: false,
-                                      duration: 1.0, animationInstractor: animationInstractor)
+            guard let presented = fromVC as? DestinationTransitionType else { return nil }
+            return TransitionAnimator(presenting: self, presented: presented, isPresent: false, duration: 1.0, interactiveTransition: PopAnimationInteractor(navigationController: navigationController, presented: presented))
         default: return nil
         }
     }

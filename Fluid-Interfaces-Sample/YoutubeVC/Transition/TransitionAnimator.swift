@@ -9,19 +9,21 @@
 import UIKit
 
 final class TransitionAnimator: NSObject {
-    weak var presenting: SourceTransitionType!
-    weak var presented: DestinationTransitionType!
+    let presenting: SourceTransitionType
+    let presented: DestinationTransitionType
     let isPresent: Bool
     let duration: TimeInterval
-    let animationInstractor: AnimationInstractor
+    var pushAnimationInteractor: PushAnimationInteractor?
+    var popAnimationInteractor: PopAnimationInteractor?
 
     init(presenting: SourceTransitionType, presented: DestinationTransitionType,
-         isPresent: Bool, duration: TimeInterval, animationInstractor: AnimationInstractor) {
+         isPresent: Bool, duration: TimeInterval, interactiveTransition: UIPercentDrivenInteractiveTransition) {
         self.presenting = presenting
         self.presented = presented
         self.isPresent = isPresent
         self.duration = duration
-        self.animationInstractor = animationInstractor
+        self.pushAnimationInteractor = interactiveTransition as? PushAnimationInteractor
+        self.popAnimationInteractor = interactiveTransition as? PopAnimationInteractor
     }
 
     func pushTransitionAnimation(transitionContext: UIViewControllerContextTransitioning) {
