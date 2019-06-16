@@ -18,6 +18,7 @@ final class PopAnimationInteractor: UIPercentDrivenInteractiveTransition {
         self.navigationController = navigationController
         self.presented = presented
         super.init()
+        presented.view.layoutIfNeeded()
         setupPanGesture(view: self.presented.labelView)
     }
 
@@ -30,7 +31,7 @@ final class PopAnimationInteractor: UIPercentDrivenInteractiveTransition {
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
         guard let targetView = presented.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
-        let progress = viewTranslation.y / targetView.frame.height
+        let progress = viewTranslation.x / targetView.frame.width
 
         switch gesture.state {
         case .began:

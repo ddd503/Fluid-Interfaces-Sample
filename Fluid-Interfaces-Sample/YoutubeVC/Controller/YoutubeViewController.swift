@@ -19,6 +19,9 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
         }
     }
 
+    var animator: UIViewControllerAnimatedTransitioning?
+    var popAnimationInteractor: PopAnimationInteractor?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationController = navigationController else { return }
@@ -30,7 +33,7 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
     }
 
     @objc func taped(_ sender: UITapGestureRecognizer) {
-        let vc = YoutubeLabelViewController.make(image: imageView.image, text: label.text)
+        let vc = SubScreenViewController(image: imageView.image, text: label.text)
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -56,13 +59,10 @@ extension YoutubeViewController: UINavigationControllerDelegate {
             return nil
         }
 
-        if transitionAnimator.isPresent,
-            let pushAnimationInteractor = transitionAnimator.pushAnimationInteractor,
-            pushAnimationInteractor.interactionInProgress {
-            return pushAnimationInteractor
-        } else if let popAnimationInteractor = transitionAnimator.popAnimationInteractor,
-            popAnimationInteractor.interactionInProgress {
-            return popAnimationInteractor
+        if transitionAnimator.isPresent {
+            return nil
+        } else if transitionAnimator.popAnimationInteractor.interactionInProgress {
+            return transitionAnimator.popAnimationInteractor
         } else {
             return nil
         }
@@ -72,11 +72,15 @@ extension YoutubeViewController: UINavigationControllerDelegate {
         switch operation {
         case .push:
             guard let presented = toVC as? DestinationTransitionType else { return nil }
-            return TransitionAnimator(presenting: self, presented: presented, isPresent: true, duration: 1.0, interactiveTransition: PushAnimationInteractor(navigationController: navigationController, presenting: self, presented: presented))
+            popAnimationInteractor = PopAnimationInteractor(navigationController: navigationController, presented: presented)
+            animator = TransitionAnimator(presenting: self, presented: presented, isPresent: false, duration: 1.0, interactiveTransition: popAnimationInteractor!)
+            return nil
         case .pop:
+            // これをしないとrootVCに戻れない
             guard let presented = fromVC as? DestinationTransitionType else { return nil }
-            return TransitionAnimator(presenting: self, presented: presented, isPresent: false, duration: 1.0, interactiveTransition: PopAnimationInteractor(navigationController: navigationController, presented: presented))
-        default: return nil
+            return animator
+        default:
+            return nil
         }
     }
 }

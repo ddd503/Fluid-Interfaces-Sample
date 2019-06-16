@@ -14,16 +14,16 @@ final class TransitionAnimator: NSObject {
     let isPresent: Bool
     let duration: TimeInterval
     var pushAnimationInteractor: PushAnimationInteractor?
-    var popAnimationInteractor: PopAnimationInteractor?
+    let popAnimationInteractor: PopAnimationInteractor
 
     init(presenting: SourceTransitionType, presented: DestinationTransitionType,
-         isPresent: Bool, duration: TimeInterval, interactiveTransition: UIPercentDrivenInteractiveTransition) {
+         isPresent: Bool, duration: TimeInterval, interactiveTransition: PopAnimationInteractor) {
         self.presenting = presenting
         self.presented = presented
         self.isPresent = isPresent
         self.duration = duration
-        self.pushAnimationInteractor = interactiveTransition as? PushAnimationInteractor
-        self.popAnimationInteractor = interactiveTransition as? PopAnimationInteractor
+//        self.pushAnimationInteractor = interactiveTransition as? PushAnimationInteractor
+        self.popAnimationInteractor = interactiveTransition
     }
 
     func pushTransitionAnimation(transitionContext: UIViewControllerContextTransitioning) {
@@ -114,9 +114,8 @@ final class TransitionAnimator: NSObject {
             imageView.frame = self.presenting.imageView.frame
             infomationView.frame = self.presenting.infomationView.frame
             infomationView.alpha = 1
-        }) { [weak self] (_) in
+        }) { (_) in
             animationView.removeFromSuperview()
-            self?.presented.view.removeFromSuperview()
             label.removeFromSuperview()
             let isComplete = !transitionContext.transitionWasCancelled
             transitionContext.completeTransition(isComplete)

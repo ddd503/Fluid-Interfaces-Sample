@@ -16,13 +16,13 @@
 		45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */; };
 		45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E0D223D5ED100A5F567 /* GradientView.swift */; };
 		45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E10223D60CC00A5F567 /* UIColor+Code.swift */; };
-		45A367C022A9455500E0C95B /* YoutubeLabelViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */; };
-		45A367C222A9456300E0C95B /* YoutubeLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */; };
 		45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C522A954B900E0C95B /* TransitionAnimator.swift */; };
 		45A367C822A9553400E0C95B /* AnimationInstractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C722A9553400E0C95B /* AnimationInstractor.swift */; };
 		45A367CA22A9558400E0C95B /* TransitionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C922A9558400E0C95B /* TransitionViewType.swift */; };
 		45A367D022B64B9E00E0C95B /* PushAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367CF22B64B9E00E0C95B /* PushAnimationInteractor.swift */; };
 		45A367D222B64CFB00E0C95B /* PopAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D122B64CFB00E0C95B /* PopAnimationInteractor.swift */; };
+		45A367D522B6801500E0C95B /* SubScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D322B6801500E0C95B /* SubScreenViewController.swift */; };
+		45A367D622B6801500E0C95B /* SubScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A367D422B6801500E0C95B /* SubScreenViewController.xib */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -40,13 +40,13 @@
 		45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MomentumViewController.storyboard; sourceTree = "<group>"; };
 		45839E0D223D5ED100A5F567 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45839E10223D60CC00A5F567 /* UIColor+Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Code.swift"; sourceTree = "<group>"; };
-		45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YoutubeLabelViewController.storyboard; sourceTree = "<group>"; };
-		45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeLabelViewController.swift; sourceTree = "<group>"; };
 		45A367C522A954B900E0C95B /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		45A367C722A9553400E0C95B /* AnimationInstractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationInstractor.swift; sourceTree = "<group>"; };
 		45A367C922A9558400E0C95B /* TransitionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewType.swift; sourceTree = "<group>"; };
 		45A367CF22B64B9E00E0C95B /* PushAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimationInteractor.swift; sourceTree = "<group>"; };
 		45A367D122B64CFB00E0C95B /* PopAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimationInteractor.swift; sourceTree = "<group>"; };
+		45A367D322B6801500E0C95B /* SubScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubScreenViewController.swift; sourceTree = "<group>"; };
+		45A367D422B6801500E0C95B /* SubScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubScreenViewController.xib; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 			children = (
 				457B4CAA223D82D70036FB39 /* YoutubeViewController.storyboard */,
 				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
-				45A367BF22A9455500E0C95B /* YoutubeLabelViewController.storyboard */,
-				45A367C122A9456300E0C95B /* YoutubeLabelViewController.swift */,
+				45A367D422B6801500E0C95B /* SubScreenViewController.xib */,
+				45A367D322B6801500E0C95B /* SubScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,9 +267,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A367C022A9455500E0C95B /* YoutubeLabelViewController.storyboard in Resources */,
 				45BC8B0F22283D1000343215 /* LaunchScreen.storyboard in Resources */,
 				45BC8B0C22283D1000343215 /* Assets.xcassets in Resources */,
+				45A367D622B6801500E0C95B /* SubScreenViewController.xib in Resources */,
 				457B4CAB223D82D70036FB39 /* YoutubeViewController.storyboard in Resources */,
 				45BC8B0A22283D1000343215 /* Main.storyboard in Resources */,
 				45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */,
@@ -284,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */,
+				45A367D522B6801500E0C95B /* SubScreenViewController.swift in Sources */,
 				45A367C822A9553400E0C95B /* AnimationInstractor.swift in Sources */,
 				45839DE1222D5BD800A5F567 /* MomentumViewController.swift in Sources */,
 				45BC8B0722283D1000343215 /* ViewController.swift in Sources */,
@@ -295,7 +296,6 @@
 				45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */,
 				45A367D222B64CFB00E0C95B /* PopAnimationInteractor.swift in Sources */,
 				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,
-				45A367C222A9456300E0C95B /* YoutubeLabelViewController.swift in Sources */,
 				457B4CA9223D82CF0036FB39 /* YoutubeViewController.swift in Sources */,
 				45A367CA22A9558400E0C95B /* TransitionViewType.swift in Sources */,
 			);
