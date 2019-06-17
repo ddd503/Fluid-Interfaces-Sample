@@ -17,12 +17,13 @@
 		45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E0D223D5ED100A5F567 /* GradientView.swift */; };
 		45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E10223D60CC00A5F567 /* UIColor+Code.swift */; };
 		45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C522A954B900E0C95B /* TransitionAnimator.swift */; };
-		45A367C822A9553400E0C95B /* AnimationInstractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C722A9553400E0C95B /* AnimationInstractor.swift */; };
 		45A367CA22A9558400E0C95B /* TransitionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C922A9558400E0C95B /* TransitionViewType.swift */; };
-		45A367D022B64B9E00E0C95B /* PushAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367CF22B64B9E00E0C95B /* PushAnimationInteractor.swift */; };
-		45A367D222B64CFB00E0C95B /* PopAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D122B64CFB00E0C95B /* PopAnimationInteractor.swift */; };
+		45A367D022B64B9E00E0C95B /* PresentAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */; };
+		45A367D222B64CFB00E0C95B /* DismissAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */; };
 		45A367D522B6801500E0C95B /* SubScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D322B6801500E0C95B /* SubScreenViewController.swift */; };
 		45A367D622B6801500E0C95B /* SubScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A367D422B6801500E0C95B /* SubScreenViewController.xib */; };
+		45A367D822B7BFF800E0C95B /* PresentTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D722B7BFF800E0C95B /* PresentTransitionAnimator.swift */; };
+		45A367DA22B7C20A00E0C95B /* DismissTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D922B7C20A00E0C95B /* DismissTransitionAnimator.swift */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -41,12 +42,13 @@
 		45839E0D223D5ED100A5F567 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45839E10223D60CC00A5F567 /* UIColor+Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Code.swift"; sourceTree = "<group>"; };
 		45A367C522A954B900E0C95B /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
-		45A367C722A9553400E0C95B /* AnimationInstractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationInstractor.swift; sourceTree = "<group>"; };
 		45A367C922A9558400E0C95B /* TransitionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewType.swift; sourceTree = "<group>"; };
-		45A367CF22B64B9E00E0C95B /* PushAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimationInteractor.swift; sourceTree = "<group>"; };
-		45A367D122B64CFB00E0C95B /* PopAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimationInteractor.swift; sourceTree = "<group>"; };
+		45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationInteractor.swift; sourceTree = "<group>"; };
+		45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimationInteractor.swift; sourceTree = "<group>"; };
 		45A367D322B6801500E0C95B /* SubScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubScreenViewController.swift; sourceTree = "<group>"; };
 		45A367D422B6801500E0C95B /* SubScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubScreenViewController.xib; sourceTree = "<group>"; };
+		45A367D722B7BFF800E0C95B /* PresentTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentTransitionAnimator.swift; sourceTree = "<group>"; };
+		45A367D922B7C20A00E0C95B /* DismissTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissTransitionAnimator.swift; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,10 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				45A367C522A954B900E0C95B /* TransitionAnimator.swift */,
-				45A367C722A9553400E0C95B /* AnimationInstractor.swift */,
 				45A367C922A9558400E0C95B /* TransitionViewType.swift */,
-				45A367CF22B64B9E00E0C95B /* PushAnimationInteractor.swift */,
-				45A367D122B64CFB00E0C95B /* PopAnimationInteractor.swift */,
+				45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */,
+				45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */,
+				45A367D722B7BFF800E0C95B /* PresentTransitionAnimator.swift */,
+				45A367D922B7C20A00E0C95B /* DismissTransitionAnimator.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -285,16 +288,17 @@
 			files = (
 				45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */,
 				45A367D522B6801500E0C95B /* SubScreenViewController.swift in Sources */,
-				45A367C822A9553400E0C95B /* AnimationInstractor.swift in Sources */,
 				45839DE1222D5BD800A5F567 /* MomentumViewController.swift in Sources */,
 				45BC8B0722283D1000343215 /* ViewController.swift in Sources */,
-				45A367D022B64B9E00E0C95B /* PushAnimationInteractor.swift in Sources */,
+				45A367D822B7BFF800E0C95B /* PresentTransitionAnimator.swift in Sources */,
+				45A367D022B64B9E00E0C95B /* PresentAnimationInteractor.swift in Sources */,
 				455617AA222C0ED200619391 /* MenuViewLayout.swift in Sources */,
 				45839DDE222C259400A5F567 /* InterfaceType.swift in Sources */,
 				45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */,
 				45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */,
 				45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */,
-				45A367D222B64CFB00E0C95B /* PopAnimationInteractor.swift in Sources */,
+				45A367D222B64CFB00E0C95B /* DismissAnimationInteractor.swift in Sources */,
+				45A367DA22B7C20A00E0C95B /* DismissTransitionAnimator.swift in Sources */,
 				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,
 				457B4CA9223D82CF0036FB39 /* YoutubeViewController.swift in Sources */,
 				45A367CA22A9558400E0C95B /* TransitionViewType.swift in Sources */,

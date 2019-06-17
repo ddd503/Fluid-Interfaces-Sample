@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubScreenViewController" customModule="Fluid_Interfaces_Sample" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="p6L-Cm-4JH" id="jkp-E0-Avr"/>
-                <outlet property="label" destination="Wgy-sU-3jh" id="HS4-CD-1KV"/>
-                <outlet property="labelView" destination="NJY-OD-fcu" id="42O-fC-YUH"/>
+                <outlet property="imageView" destination="p6L-Cm-4JH" id="1yX-iS-wbP"/>
+                <outlet property="label" destination="Wgy-sU-3jh" id="USz-eh-df0"/>
+                <outlet property="labelView" destination="NJY-OD-fcu" id="cDY-Ce-ocK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

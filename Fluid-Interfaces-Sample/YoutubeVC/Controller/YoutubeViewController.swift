@@ -19,22 +19,18 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
         }
     }
 
-    var animator: UIViewControllerAnimatedTransitioning?
-    var popAnimationInteractor: PopAnimationInteractor?
+    var dismissTransitionAnimator: DismissTransitionAnimator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let navigationController = navigationController else { return }
-        navigationController.delegate = self
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(taped(_:)))
-        imageView.addGestureRecognizer(tapGesture)
-
+        navigationController?.delegate = self
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentNextVC))
+        imageView.addGestureRecognizer(gesture)
     }
 
-    @objc func taped(_ sender: UITapGestureRecognizer) {
-        let vc = SubScreenViewController(image: imageView.image, text: label.text)
-        navigationController?.pushViewController(vc, animated: true)
+    @objc func presentNextVC() {
+        let subVC = SubScreenViewController(image: imageView.image, text: label.text)
+        navigationController?.pushViewController(subVC, animated: true)
     }
 
 }
@@ -53,34 +49,33 @@ extension YoutubeViewController: UITableViewDataSource {
 }
 
 extension YoutubeViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-
-        guard let transitionAnimator = animationController as? TransitionAnimator else {
-            return nil
-        }
-
-        if transitionAnimator.isPresent {
-            return nil
-        } else if transitionAnimator.popAnimationInteractor.interactionInProgress {
-            return transitionAnimator.popAnimationInteractor
-        } else {
-            return nil
-        }
-    }
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         switch operation {
         case .push:
             guard let presented = toVC as? DestinationTransitionType else { return nil }
-            popAnimationInteractor = PopAnimationInteractor(navigationController: navigationController, presented: presented)
-            animator = TransitionAnimator(presenting: self, presented: presented, isPresent: false, duration: 1.0, interactiveTransition: popAnimationInteractor!)
-            return nil
+            let presentAnimationInteractor = PresentAnimationInteractor(navigationController: navigationController, presenting: self, presented: presented)
+
+            let dismissAnimationInteractor = DismissAnimationInteractor(navigationController: navigationController,
+                                                                        presented: presented)
+            dismissTransitionAnimator = DismissTransitionAnimator(presenting: self, presented: presented, duration: 1.0, dismissAnimationInteractor: dismissAnimationInteractor)
+            return PresentTransitionAnimator(presenting: self, presented: presented,
+                                             duration: 1.0, presentAnimationInteractor: presentAnimationInteractor)
         case .pop:
-            // これをしないとrootVCに戻れない
-            guard let presented = fromVC as? DestinationTransitionType else { return nil }
-            return animator
+            return dismissTransitionAnimator
         default:
             return nil
         }
+    }
+
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        if let presentTransitionAnimator = animationController as? PresentTransitionAnimator {
+//            return presentTransitionAnimator.presentAnimationInteractor
+//        } else if let dismissTransitionAnimator = animationController as? DismissTransitionAnimator {
+//            return dismissTransitionAnimator.dismissAnimationInteractor
+//        } else {
+//            return nil
+//        }
+        return nil
     }
 }

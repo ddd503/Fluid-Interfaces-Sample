@@ -1,5 +1,5 @@
 //
-//  PopAnimationInteractor.swift
+//  PresentAnimationInteractor.swift
 //  Fluid-Interfaces-Sample
 //
 //  Created by kawaharadai on 2019/06/16.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-final class PopAnimationInteractor: UIPercentDrivenInteractiveTransition {
-    let navigationController: UINavigationController!
-    let presented: DestinationTransitionType
+final class PresentAnimationInteractor: UIPercentDrivenInteractiveTransition {
+    weak var navigationController: UINavigationController?
+    weak var presenting: SourceTransitionType?
+    weak var presented: DestinationTransitionType?
     var interactionInProgress = false
     private var shouldCompleteTransition = false
 
-    init(navigationController: UINavigationController, presented: DestinationTransitionType) {
+    init(navigationController: UINavigationController, presenting: SourceTransitionType, presented: DestinationTransitionType) {
         self.navigationController = navigationController
+        self.presenting = presenting
         self.presented = presented
         super.init()
-        presented.view.layoutIfNeeded()
-        setupPanGesture(view: self.presented.labelView)
+        setupPanGesture(view: self.presenting?.imageView)
     }
 
     private func setupPanGesture(view : UIView?) {
@@ -29,14 +30,18 @@ final class PopAnimationInteractor: UIPercentDrivenInteractiveTransition {
     }
 
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
-        guard let targetView = presented.view else { return }
+        guard let targetView = presenting?.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
         let progress = viewTranslation.x / targetView.frame.width
 
         switch gesture.state {
         case .began:
             interactionInProgress = true
-            navigationController.popViewController(animated: true)
+            guard let presented = presented else {
+                cancel()
+                return
+            }
+            navigationController?.pushViewController(presented, animated: true)
         case .changed:
             // 中心以上スワイプしたら
             shouldCompleteTransition = progress > 0.5
@@ -51,4 +56,3 @@ final class PopAnimationInteractor: UIPercentDrivenInteractiveTransition {
         }
     }
 }
-

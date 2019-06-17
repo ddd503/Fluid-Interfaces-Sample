@@ -9,21 +9,21 @@
 import UIKit
 
 final class TransitionAnimator: NSObject {
-    let presenting: SourceTransitionType
-    let presented: DestinationTransitionType
+    weak var presenting: SourceTransitionType!
+    weak var presented: DestinationTransitionType!
+    weak var pushAnimationInteractor: PresentAnimationInteractor?
+    weak var popAnimationInteractor: DismissAnimationInteractor?
     let isPresent: Bool
     let duration: TimeInterval
-    var pushAnimationInteractor: PushAnimationInteractor?
-    let popAnimationInteractor: PopAnimationInteractor
 
     init(presenting: SourceTransitionType, presented: DestinationTransitionType,
-         isPresent: Bool, duration: TimeInterval, interactiveTransition: PopAnimationInteractor) {
+         isPresent: Bool, duration: TimeInterval, pushAnimationInteractor: PresentAnimationInteractor?, popAnimationInteractor: DismissAnimationInteractor?) {
         self.presenting = presenting
         self.presented = presented
         self.isPresent = isPresent
         self.duration = duration
-//        self.pushAnimationInteractor = interactiveTransition as? PushAnimationInteractor
-        self.popAnimationInteractor = interactiveTransition
+        self.pushAnimationInteractor = pushAnimationInteractor
+        self.popAnimationInteractor = popAnimationInteractor
     }
 
     func pushTransitionAnimation(transitionContext: UIViewControllerContextTransitioning) {
@@ -98,7 +98,6 @@ final class TransitionAnimator: NSObject {
         label.frame = presented.label.frame
         labelView.addSubview(label)
         containerView.addSubview(animationView)
-
 
         UIView.animate(withDuration: duration / 3) {
             label.alpha = 0
