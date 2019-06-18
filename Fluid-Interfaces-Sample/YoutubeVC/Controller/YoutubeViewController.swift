@@ -19,20 +19,25 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
         }
     }
 
-    var dismissTransitionAnimator: DismissTransitionAnimator?
+    private var subScreenVC: SubScreenViewController!
+    private var presentTransitionAnimator: PresentTransitionAnimator?
+    private var dismissTransitionAnimator: DismissTransitionAnimator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentNextVC))
-        imageView.addGestureRecognizer(gesture)
-    }
+        guard let navigationController = navigationController else { return }
+        navigationController.delegate = self
+        subScreenVC = SubScreenViewController(image: imageView.image, text: label.text)
+        let presentAnimationInteractor = PresentAnimationInteractor(navigationController: navigationController,
+                                                                    presenting: self, presented: subScreenVC)
+        presentTransitionAnimator = PresentTransitionAnimator(presenting: self, presented: subScreenVC,
+                                                              duration: 1.0, presentAnimationInteractor: presentAnimationInteractor)
+        let dismissAnimationInteractor = DismissAnimationInteractor(navigationController: navigationController,
+                                                                    presented: subScreenVC)
+        dismissTransitionAnimator = DismissTransitionAnimator(presenting: self, presented: subScreenVC,
+                                                              duration: 1.0, dismissAnimationInteractor: dismissAnimationInteractor)
 
-    @objc func presentNextVC() {
-        let subVC = SubScreenViewController(image: imageView.image, text: label.text)
-        navigationController?.pushViewController(subVC, animated: true)
     }
-
 }
 
 extension YoutubeViewController: UITableViewDataSource {
@@ -53,15 +58,10 @@ extension YoutubeViewController: UINavigationControllerDelegate {
 
         switch operation {
         case .push:
-            guard let presented = toVC as? DestinationTransitionType else { return nil }
-            let presentAnimationInteractor = PresentAnimationInteractor(navigationController: navigationController, presenting: self, presented: presented)
-
-            let dismissAnimationInteractor = DismissAnimationInteractor(navigationController: navigationController,
-                                                                        presented: presented)
-            dismissTransitionAnimator = DismissTransitionAnimator(presenting: self, presented: presented, duration: 1.0, dismissAnimationInteractor: dismissAnimationInteractor)
-            return PresentTransitionAnimator(presenting: self, presented: presented,
-                                             duration: 1.0, presentAnimationInteractor: presentAnimationInteractor)
+            guard fromVC is SourceTransitionType, toVC is DestinationTransitionType else { return nil }
+            return presentTransitionAnimator
         case .pop:
+            guard fromVC is DestinationTransitionType else { return nil }
             return dismissTransitionAnimator
         default:
             return nil
@@ -69,13 +69,16 @@ extension YoutubeViewController: UINavigationControllerDelegate {
     }
 
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        if let presentTransitionAnimator = animationController as? PresentTransitionAnimator {
-//            return presentTransitionAnimator.presentAnimationInteractor
-//        } else if let dismissTransitionAnimator = animationController as? DismissTransitionAnimator {
-//            return dismissTransitionAnimator.dismissAnimationInteractor
-//        } else {
-//            return nil
-//        }
-        return nil
+        if let presentTransitionAnimator = animationController as? PresentTransitionAnimator,
+            let presentAnimationInteractor = presentTransitionAnimator.presentAnimationInteractor,
+            presentAnimationInteractor.interactionInProgress {
+            return presentAnimationInteractor
+        } else if let dismissTransitionAnimator = animationController as? DismissTransitionAnimator,
+            let dismissAnimationInteractor = dismissTransitionAnimator.dismissAnimationInteractor,
+            dismissAnimationInteractor.interactionInProgress {
+            return dismissAnimationInteractor
+        } else {
+            return nil
+        }
     }
 }
