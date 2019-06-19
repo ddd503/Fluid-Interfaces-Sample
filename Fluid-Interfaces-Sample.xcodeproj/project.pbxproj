@@ -16,7 +16,6 @@
 		45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */; };
 		45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E0D223D5ED100A5F567 /* GradientView.swift */; };
 		45839E11223D60CC00A5F567 /* UIColor+Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45839E10223D60CC00A5F567 /* UIColor+Code.swift */; };
-		45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C522A954B900E0C95B /* TransitionAnimator.swift */; };
 		45A367CA22A9558400E0C95B /* TransitionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367C922A9558400E0C95B /* TransitionViewType.swift */; };
 		45A367D022B64B9E00E0C95B /* PresentAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */; };
 		45A367D222B64CFB00E0C95B /* DismissAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */; };
@@ -24,6 +23,8 @@
 		45A367D622B6801500E0C95B /* SubScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A367D422B6801500E0C95B /* SubScreenViewController.xib */; };
 		45A367D822B7BFF800E0C95B /* PresentTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D722B7BFF800E0C95B /* PresentTransitionAnimator.swift */; };
 		45A367DA22B7C20A00E0C95B /* DismissTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A367D922B7C20A00E0C95B /* DismissTransitionAnimator.swift */; };
+		45AA451222BA7668001F6DEC /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA451122BA7668001F6DEC /* PresentViewController.swift */; };
+		45AA451422BA7670001F6DEC /* PresentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AA451322BA7670001F6DEC /* PresentViewController.storyboard */; };
 		45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0422283D1000343215 /* AppDelegate.swift */; };
 		45BC8B0722283D1000343215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC8B0622283D1000343215 /* ViewController.swift */; };
 		45BC8B0A22283D1000343215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC8B0822283D1000343215 /* Main.storyboard */; };
@@ -41,7 +42,6 @@
 		45839DE2222D5BE000A5F567 /* MomentumViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MomentumViewController.storyboard; sourceTree = "<group>"; };
 		45839E0D223D5ED100A5F567 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45839E10223D60CC00A5F567 /* UIColor+Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Code.swift"; sourceTree = "<group>"; };
-		45A367C522A954B900E0C95B /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		45A367C922A9558400E0C95B /* TransitionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewType.swift; sourceTree = "<group>"; };
 		45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationInteractor.swift; sourceTree = "<group>"; };
 		45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimationInteractor.swift; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		45A367D422B6801500E0C95B /* SubScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubScreenViewController.xib; sourceTree = "<group>"; };
 		45A367D722B7BFF800E0C95B /* PresentTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentTransitionAnimator.swift; sourceTree = "<group>"; };
 		45A367D922B7C20A00E0C95B /* DismissTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissTransitionAnimator.swift; sourceTree = "<group>"; };
+		45AA451122BA7668001F6DEC /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
+		45AA451322BA7670001F6DEC /* PresentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PresentViewController.storyboard; sourceTree = "<group>"; };
 		45BC8B0122283D1000343215 /* Fluid-Interfaces-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluid-Interfaces-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC8B0422283D1000343215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC8B0622283D1000343215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +142,6 @@
 		45A367C322A94CBA00E0C95B /* Transition */ = {
 			isa = PBXGroup;
 			children = (
-				45A367C522A954B900E0C95B /* TransitionAnimator.swift */,
 				45A367C922A9558400E0C95B /* TransitionViewType.swift */,
 				45A367CF22B64B9E00E0C95B /* PresentAnimationInteractor.swift */,
 				45A367D122B64CFB00E0C95B /* DismissAnimationInteractor.swift */,
@@ -157,6 +158,8 @@
 				457B4CA8223D82CF0036FB39 /* YoutubeViewController.swift */,
 				45A367D422B6801500E0C95B /* SubScreenViewController.xib */,
 				45A367D322B6801500E0C95B /* SubScreenViewController.swift */,
+				45AA451122BA7668001F6DEC /* PresentViewController.swift */,
+				45AA451322BA7670001F6DEC /* PresentViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				45A367D622B6801500E0C95B /* SubScreenViewController.xib in Resources */,
 				457B4CAB223D82D70036FB39 /* YoutubeViewController.storyboard in Resources */,
 				45BC8B0A22283D1000343215 /* Main.storyboard in Resources */,
+				45AA451422BA7670001F6DEC /* PresentViewController.storyboard in Resources */,
 				45839DE3222D5BE000A5F567 /* MomentumViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,11 +296,11 @@
 				45BC8B0722283D1000343215 /* ViewController.swift in Sources */,
 				45A367D822B7BFF800E0C95B /* PresentTransitionAnimator.swift in Sources */,
 				45A367D022B64B9E00E0C95B /* PresentAnimationInteractor.swift in Sources */,
+				45AA451222BA7668001F6DEC /* PresentViewController.swift in Sources */,
 				455617AA222C0ED200619391 /* MenuViewLayout.swift in Sources */,
 				45839DDE222C259400A5F567 /* InterfaceType.swift in Sources */,
 				45839E0E223D5ED100A5F567 /* GradientView.swift in Sources */,
 				45BC8B0522283D1000343215 /* AppDelegate.swift in Sources */,
-				45A367C622A954B900E0C95B /* TransitionAnimator.swift in Sources */,
 				45A367D222B64CFB00E0C95B /* DismissAnimationInteractor.swift in Sources */,
 				45A367DA22B7C20A00E0C95B /* DismissTransitionAnimator.swift in Sources */,
 				455617A6222C0C1A00619391 /* MenuViewCell.swift in Sources */,

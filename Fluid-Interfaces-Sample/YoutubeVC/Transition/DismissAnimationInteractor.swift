@@ -31,7 +31,7 @@ final class DismissAnimationInteractor: UIPercentDrivenInteractiveTransition {
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
         guard let targetView = presented?.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
-        let progress = viewTranslation.x / targetView.frame.width
+        let progress = -(viewTranslation.y / targetView.frame.height)
 
         switch gesture.state {
         case .began:

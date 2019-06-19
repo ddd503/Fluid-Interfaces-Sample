@@ -19,6 +19,11 @@ final class YoutubeViewController: UIViewController, SourceTransitionType {
         }
     }
 
+    class func make() -> YoutubeViewController {
+        let vc = UIStoryboard(name: String(describing: self), bundle: .main).instantiateInitialViewController() as! YoutubeViewController
+        return vc
+    }
+
     private var subScreenVC: SubScreenViewController!
     private var presentTransitionAnimator: PresentTransitionAnimator?
     private var dismissTransitionAnimator: DismissTransitionAnimator?

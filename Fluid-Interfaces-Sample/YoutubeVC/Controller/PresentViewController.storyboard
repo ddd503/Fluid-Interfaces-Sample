@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qCP-Aq-3Jw">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Present View Controller-->
+        <scene sceneID="mWN-iY-Otx">
+            <objects>
+                <viewController id="qCP-Aq-3Jw" customClass="PresentViewController" customModule="Fluid_Interfaces_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nCG-RV-R5h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-pB-3Hp">
+                                <rect key="frame" x="0.0" y="772.5" width="414" height="89.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsD-4m-jsd">
+                                        <rect key="frame" x="35" y="9" width="95.5" height="71.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wsD-4m-jsd" secondAttribute="height" multiplier="4:3" id="5eO-hg-Mji"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq8-H2-vac">
+                                        <rect key="frame" x="150.5" y="44.5" width="253.5" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="wsD-4m-jsd" firstAttribute="height" secondItem="eDk-pB-3Hp" secondAttribute="height" multiplier="0.8" id="0hY-AS-LeH"/>
+                                    <constraint firstItem="wsD-4m-jsd" firstAttribute="centerX" secondItem="eDk-pB-3Hp" secondAttribute="centerX" multiplier="0.4" id="1vp-cv-hlb"/>
+                                    <constraint firstItem="wq8-H2-vac" firstAttribute="centerY" secondItem="wsD-4m-jsd" secondAttribute="centerY" id="3ZP-fp-Chw"/>
+                                    <constraint firstItem="wsD-4m-jsd" firstAttribute="centerY" secondItem="eDk-pB-3Hp" secondAttribute="centerY" id="KfB-rY-geo"/>
+                                    <constraint firstItem="wq8-H2-vac" firstAttribute="leading" secondItem="wsD-4m-jsd" secondAttribute="trailing" constant="20" id="heY-uN-kpQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="wq8-H2-vac" secondAttribute="trailing" constant="10" id="t3A-5a-TS2"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agp-Db-piC">
+                                <rect key="frame" x="92" y="412" width="230" height="72"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="60"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Present"/>
+                                <connections>
+                                    <action selector="didTapPresent:" destination="qCP-Aq-3Jw" eventType="touchUpInside" id="dIm-W9-got"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eDk-pB-3Hp" firstAttribute="centerX" secondItem="nCG-RV-R5h" secondAttribute="centerX" id="Ery-wg-lsl"/>
+                            <constraint firstItem="agp-Db-piC" firstAttribute="centerY" secondItem="nCG-RV-R5h" secondAttribute="centerY" id="HXK-8M-5gX"/>
+                            <constraint firstItem="agp-Db-piC" firstAttribute="centerX" secondItem="nCG-RV-R5h" secondAttribute="centerX" id="m4B-fN-LF8"/>
+                            <constraint firstItem="eDk-pB-3Hp" firstAttribute="height" secondItem="nCG-RV-R5h" secondAttribute="height" multiplier="0.1" id="v4k-jR-MOX"/>
+                            <constraint firstItem="eDk-pB-3Hp" firstAttribute="width" secondItem="nCG-RV-R5h" secondAttribute="width" id="zez-7L-Ucg"/>
+                            <constraint firstItem="MCB-Y7-Far" firstAttribute="bottom" secondItem="eDk-pB-3Hp" secondAttribute="bottom" id="ziM-R1-xI6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MCB-Y7-Far"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="wsD-4m-jsd" id="N2C-0m-Qc5"/>
+                        <outlet property="label" destination="wq8-H2-vac" id="Dgf-He-DSV"/>
+                        <outlet property="labelView" destination="eDk-pB-3Hp" id="wxI-mN-Q8i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pkc-kb-wSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="137"/>
+        </scene>
+    </scenes>
+</document>
