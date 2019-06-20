@@ -31,44 +31,61 @@ extension DismissTransitionAnimator: UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         containerView.insertSubview(presenting.view, at: 0)
-        let animationView = UIView(frame: presented.labelView.frame)
-        animationView.backgroundColor = .darkGray
-        let labelView = UIView(frame: .zero)
-        labelView.frame.size = presented.labelView.frame.size
-        labelView.backgroundColor = .clear
-        animationView.addSubview(labelView)
+        presented.view.alpha = 0
+
+        let baseView = UIView(frame: presented.baseView.frame)
+        baseView.backgroundColor = presented.baseView.backgroundColor
         let imageView = UIImageView(image: presented.imageView.image)
         imageView.frame = presented.imageView.frame
-        labelView.addSubview(imageView)
-        let infomationView = presenting.infomationView.snapshotView(afterScreenUpdates: true) ?? UIView()
-        infomationView.alpha = 0
-        infomationView.frame.origin.y = presented.labelView.frame.height
-        labelView.addSubview(infomationView)
-        let label = presented.label.snapshotView(afterScreenUpdates: true) ?? UIView()
-        label.frame = presented.label.frame
-        labelView.addSubview(label)
-        containerView.addSubview(animationView)
+        baseView.addSubview(imageView)
+        let infomationImageView = presented.infomationView.snapshotView(afterScreenUpdates: true) ?? UIView()
+        infomationImageView.frame = presented.infomationView.frame
+        baseView.addSubview(infomationImageView)
+        containerView.addSubview(baseView)
 
-        UIView.animate(withDuration: duration / 3) {
-            label.alpha = 0
+        let presentedLabelFrame = presenting.labelView.convert(presented.label.frame, to: presented.view)
+        let label = UILabel(frame: presentedLabelFrame)
+        label.frame.origin.x = presentedLabelFrame.origin.x * 2.5
+        label.text = presented.label.text
+        label.font = presented.label.font
+        label.textColor = presenting.label.textColor
+        label.alpha = 0
+        containerView.addSubview(label)
+
+        presenting.labelView.backgroundColor = .darkGray
+        presenting.imageView.image = presented.imageView.image
+        presenting.label.text = presented.label.text
+        presenting.labelView.alpha = 0
+
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) { [weak self] in
+            guard let self = self else { return }
+            baseView.frame = self.presenting.labelView.frame
+            imageView.frame.origin.y = self.presenting.imageView.frame.origin.y
+            infomationImageView.alpha = 0
         }
 
-        UIView.animate(withDuration: duration, animations: { [weak self] in
-            guard let self = self else {
-                transitionContext.cancelInteractiveTransition()
-                return
-            }
-            animationView.frame = self.presenting.view.frame
-            labelView.frame = self.presenting.baseView.frame
-            imageView.frame = self.presenting.imageView.frame
-            infomationView.frame = self.presenting.infomationView.frame
-            infomationView.alpha = 1
-        }) { (_) in
-            animationView.removeFromSuperview()
+        // 遅延実行アニメーションを追加
+        animator.addAnimations({ [weak self] in
+            guard let self = self else { return }
+            imageView.frame.origin.x = self.presenting.imageView.frame.origin.x
+            imageView.frame.size = self.presenting.imageView.frame.size
+            }, delayFactor: 0.5)
+
+        animator.addAnimations({
+            label.frame = presentedLabelFrame
+            label.alpha = 1.0
+        }, delayFactor: 0.8)
+
+        // 完了後処理を追加
+        animator.addCompletion { [weak self] (_) in
+            baseView.removeFromSuperview()
             label.removeFromSuperview()
+            self?.presenting.labelView.alpha = 1.0
             let isComplete = !transitionContext.transitionWasCancelled
             transitionContext.completeTransition(isComplete)
         }
+
+        animator.startAnimation()
     }
 }
 

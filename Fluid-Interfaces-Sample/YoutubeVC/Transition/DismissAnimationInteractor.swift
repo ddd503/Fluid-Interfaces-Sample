@@ -19,7 +19,7 @@ final class DismissAnimationInteractor: UIPercentDrivenInteractiveTransition {
         self.presented = presented
         super.init()
         presented.view.layoutIfNeeded()
-        setupPanGesture(view: self.presented?.labelView)
+        setupPanGesture(view: self.presented?.imageView)
     }
 
     private func setupPanGesture(view : UIView?) {
@@ -31,7 +31,7 @@ final class DismissAnimationInteractor: UIPercentDrivenInteractiveTransition {
     @objc private func handleTransitionGesture(_ gesture : UIPanGestureRecognizer) {
         guard let targetView = presented?.view else { return }
         let viewTranslation = gesture.translation(in: targetView)
-        let progress = -(viewTranslation.y / targetView.frame.height)
+        let progress = viewTranslation.y / targetView.frame.height
 
         switch gesture.state {
         case .began:
